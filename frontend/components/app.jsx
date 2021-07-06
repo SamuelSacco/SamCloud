@@ -17,6 +17,7 @@ const App = () => (
             </Link>
         </header>
         <Switch>
+            <Route exact path="/" />
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />
         </Switch>

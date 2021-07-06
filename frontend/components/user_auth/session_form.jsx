@@ -18,7 +18,6 @@ class SessionForm extends React.Component {
             lname: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     update(field) {
@@ -28,6 +27,7 @@ class SessionForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         this.props.processForm(this.state).then(() => {
             this.setState({
@@ -37,7 +37,10 @@ class SessionForm extends React.Component {
                 fname: '',
                 lname: ''
             })
+
+            this.props.closeModal
         })
+        
     }
 
     renderErrors() {
