@@ -12,10 +12,12 @@ class SessionForm extends React.Component {
         super(props);
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            fname: "",
+            lname: ""
         };
-
         this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
     update(field) {
@@ -29,7 +31,9 @@ class SessionForm extends React.Component {
         this.props.processForm(this.state).then(() => {
             this.setState({
                 email: '',
-                password: ''
+                password: '',
+                fname: "",
+                lname: ""
             })
         })
     }
@@ -45,19 +49,35 @@ class SessionForm extends React.Component {
             </ul>
         );
     }
+
     render() {
+        const signupNames = () => {
+            return (
+                <>
+                    <label>First name:
+                        <input type="text" value={this.state.fname} onChange={this.update('fname')} />
+                    </label>
+                    <br />
+
+                    <label>Last Name:
+                        <input type="text" value={this.state.lname} onChange={this.update('lname')} />
+                    </label>
+                </>
+            )
+        }
 
         return (
             <>
-                <h1>
+                {/* <h1>
                     <Link to='/' className={"logo"} >
                         SamCloud
                     </Link>
-                </h1>
+                </h1> */}
                 <form onSubmit={this.handleSubmit} className={"centered"}>
-                    {this.props.formType} or {this.props.navLink} here
+                    <h2>
+                        {this.props.formType}
+                    </h2>
                     {this.renderErrors()}
-                    <br />
                     <label>Email:
                         <input type="text" value={this.state.email} onChange={this.update('email')} />
                     </label>
@@ -69,6 +89,8 @@ class SessionForm extends React.Component {
                     <br />
                     {this.props.formType === 'Sign up' ? signupNames() : ''}
                     <input type="submit" value={this.props.formType} />
+                    <br />
+                    {this.props.navLink}
                 </form>
             </>
         )

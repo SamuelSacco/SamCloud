@@ -1,15 +1,8 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import {
-    Route,
-    Redirect,
-    Switch,
-    Link,
-    HashRouter
-} from 'react-router-dom';
-
+import React from 'react'
+import { Switch, Route } from 'react-router';
 import CreateAccountContainer from './user_auth/CreateAccountContainer';
 import SignInContainer from './user_auth/SignInContainer';
+import { Link } from 'react-router-dom';
 
 const App = () => (
     <div>
@@ -19,8 +12,8 @@ const App = () => (
             </Link>
         </header>
         <Switch>
-            <AuthRoute exact path="/login" component={SignInContainer} />
-            <AuthRoute exact path="/signup" component={CreateAccountContainer} />
+            <Route exact path="/login" component={SignInContainer} />
+            <Route exact path="/signup" component={CreateAccountContainer} />
         </Switch>
     </div>
 );

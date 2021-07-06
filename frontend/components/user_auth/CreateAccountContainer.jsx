@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SessionForm from './session_form';
+import SessionForm from './SessionForm';
 import { signup, login } from '../../actions/session_actions';
 
 const mSTP = ({ errors }) => {
