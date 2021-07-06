@@ -64,7 +64,6 @@ class SessionForm extends React.Component {
                         <input type="text" value={this.state.fname} onChange={this.update('fname')} />
                     </label>
                     <br />
-
                     <label>Last Name:
                         <input type="text" value={this.state.lname} onChange={this.update('lname')} />
                     </label>
@@ -73,7 +72,7 @@ class SessionForm extends React.Component {
         }
 
         return (
-            <>
+            <div>
                 {/* <h1>
                     <Link to='/' className={"logo"} >
                         SamCloud
@@ -96,9 +95,9 @@ class SessionForm extends React.Component {
                     {this.props.formType === 'Sign up' ? signupNames() : ''}
                     <input type="submit" value={this.props.formType} />
                     <br />
-                    {this.props.navLink}
+                    {this.props.otherForm}
                 </form>
-            </>
+            </div>
         )
     }
 }
