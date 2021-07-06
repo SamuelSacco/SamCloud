@@ -14,7 +14,7 @@ const App = () => (
             </Link>
         </header>
         <Switch>
-            <Route>exact path="/" component={navBarContainer}</Route>
+            <Route exact path="/" component={NavBarContainer} />
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />
         </Switch>
