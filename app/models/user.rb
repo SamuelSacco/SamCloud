@@ -6,6 +6,11 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
 
+    has_many :songs,
+    primary_key: :id,
+    foreign_key: :arist_id,
+    class_name: :Song
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64
   end

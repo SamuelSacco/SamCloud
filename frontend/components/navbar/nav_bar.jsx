@@ -7,7 +7,6 @@ class NavBar extends React.Component{
     }
 
     render (){
-        // debugger
         return (
             <>
                 <button onClick={() => this.props.openModal('Sign in')}>

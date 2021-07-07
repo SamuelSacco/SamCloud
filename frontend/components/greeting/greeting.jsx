@@ -1,26 +1,18 @@
 import React from 'react';
 
-const Greeting = ({ currentUser, logout, openModal }) => {
-
-    const sessionLinks = () => (
-        <nav className="login-signup">
-            <button onClick={() => openModal('Sign in')}>Login</button>
-            &nbsp;or&nbsp;
-            <button onClick={() => openModal('Sign up')}>Signup</button>
-        </nav>
-    );
+const Greeting = (props) => {
 
     const personalGreeting = () => (
         <hgroup className="header-group">
-            <h2 className="header-name">Hi, {currentUser.username}!</h2>
-            <button className="header-button" onClick={logout}>Log Out</button>
+            <h2 className="header-name">Hi, {props.currentUser.username}!</h2>
+            <button className="header-button" onClick={props.logout}>Log Out</button>
         </hgroup>
     );
 
     return (
-        currentUser ?
-            personalGreeting(currentUser, logout) :
-            sessionLinks()
+        props.currentUser ?
+            personalGreeting(props.currentUser, props.logout) :
+            <div></div>
     );
 };
 
