@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Greeting = (props) => {
-
+    // console.log("greeting", props)
     const personalGreeting = () => (
         <hgroup className="header-group">
             <h2 className="header-name">Hi, {props.currentUser.username}!</h2>
-            <button className="header-button" onClick={props.logout}>Log Out</button>
+            {/* <button className="header-button" onClick={props.logout}>Log Out</button> */}
         </hgroup>
     );
 

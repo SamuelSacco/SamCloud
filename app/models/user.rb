@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
     has_many :songs,
     primary_key: :id,
-    foreign_key: :arist_id,
+    foreign_key: :artist_id,
     class_name: :Song
 
   def self.generate_session_token

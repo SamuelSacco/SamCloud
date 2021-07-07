@@ -1,7 +1,8 @@
 import { useFilePicker } from 'use-file-picker';
 import React from 'react';
 
-const FilePicker = () => {
+const FilePicker = (props) => {
+    // {console.log(props)}
     const [openFileSelector, { filesContent, loading }] = useFilePicker({
         accept: ['.txt', '.mp3']
     });
@@ -15,10 +16,11 @@ const FilePicker = () => {
             <button onClick={() => openFileSelector()}>Select song </button>
             <br />
             {filesContent.map((file, index) => (
-                <div>
-                    {console.log(file)}
-                    <div key={index}>{file.name}</div>
-                    <br />
+                <div key={index}>
+                    {/* {console.log(props)}
+                    {console.log('after test')}
+                    {console.log(file.name)} */}
+                    {props.createSong(file.name)}
                 </div>
             ))}
         </div>
