@@ -5,11 +5,12 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
 import NavBar from './nav_bar';
 
-const mSTP = ({ errors }) => {
+const mSTP = (state) => {
     return({
-
+        currentUser: state.entities.users[state.session.id]
     })
 };
+
 
 const mDTP = dispatch => {
     return {

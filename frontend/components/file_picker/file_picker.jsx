@@ -1,8 +1,9 @@
 import { useFilePicker } from 'use-file-picker';
 import React from 'react';
+import { createSong } from '../../actions/song_actions';
 
 const FilePicker = (props) => {
-    // {console.log(props)}
+    
     const [openFileSelector, { filesContent, loading }] = useFilePicker({
         accept: ['.txt', '.mp3']
     });
@@ -11,18 +12,14 @@ const FilePicker = (props) => {
         return <div>Loading...</div>;
     }
 
+    for (let file of filesContent){
+        let song = { title: file.name, artist_id: props.currentUserId }
+        props.createSong(song)
+    }
+    
     return (
         <div>
-            <button onClick={() => openFileSelector()}>Select song </button>
-            <br />
-            {filesContent.map((file, index) => (
-                <div key={index}>
-                    {/* {console.log(props)}
-                    {console.log('after test')}
-                    {console.log(file.name)} */}
-                    {props.createSong(file.name)}
-                </div>
-            ))}
+            <button onClick={() => openFileSelector()}>Upload Song</button>
         </div>
     );
 }

@@ -10,9 +10,6 @@ import FilePicker from './file_picker/file_picker_container'
 
 const App = () => (
     <div>
-        <Link to="/" className="header-link">
-            <h1>SamCloud</h1>
-        </Link>
         <GreetingContainer />
         <ModalContainer />
         <NavBarContainer />
@@ -21,8 +18,10 @@ const App = () => (
         </header>
         <Switch>
             <Route exact path="/" />
+            <Route exact path="/users/:userId" component={GreetingContainer}/>
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />
+            {/* <Route exact path="/addsong/:userId" component={FilePicker}/> */}
         </Switch>
         <FilePicker />
     </div>

@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import { createSong } from '../../util/song_api_util';
+import { createSong } from '../../actions/song_actions';
 import FilePicker from './file_picker'
+import { requestSongs } from '../../actions/song_actions';
 
 const mSTP = (state) => ({
-    currentUser: "1"
+    currentUserId: state.session.id,
 });
 
 const mDTP = dispatch => ({
-    createSong: song => dispatch(createSong(song))
+    createSong: song => dispatch(createSong(song)),
 });
 
 export default connect(mSTP, mDTP)(FilePicker);
