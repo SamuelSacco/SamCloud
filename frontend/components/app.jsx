@@ -7,9 +7,10 @@ import ModalContainer from './modal/modal_container';
 import NavBarContainer from './navbar/nav_bar_container';
 import GreetingContainer from './greeting/greeting_container';
 import FilePicker from './file_picker/file_picker_container'
-
+import AudioPlayer from './audio_player/audio_player';
 const App = () => (
     <div>
+        <AudioPlayer />
         <GreetingContainer />
         <ModalContainer />
         <NavBarContainer />
@@ -24,6 +25,7 @@ const App = () => (
             {/* <Route exact path="/addsong/:userId" component={FilePicker}/> */}
         </Switch>
         <FilePicker />
+        
     </div>
 );
 
