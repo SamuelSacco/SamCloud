@@ -11,6 +11,20 @@ class User < ApplicationRecord
   foreign_key: :artist_id,
   class_name: :Song
 
+  has_many :likes,
+  primary_key: :id,
+  foreign_key: :liker_id,
+  class_name: :Like
+
+  has_many :liked_songs,
+  through: :likes,
+  source: :song
+
+  has_many :comments,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: :Comment
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64
   end
