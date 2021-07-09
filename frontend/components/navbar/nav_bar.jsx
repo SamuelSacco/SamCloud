@@ -10,21 +10,23 @@ class NavBar extends React.Component{
     render (){
         return (
             <>
-                <Link to="/" className="header-link">
+                {/* <Link to="/" className="header-link">
                     <h1>SamCloud</h1>
-                </Link>
+                </Link> */}
                 {this.props.currentUser ? 
                 <div>
                     <button onClick={() => this.props.logout()}>
                         Log out
                     </button>
+                    <br />
+                    <Link to="/songs/new">Upload song</Link>
                 </div>
                 :
                 <div>
                     <button onClick={() => this.props.openModal('Sign in')}>
                         Sign In
                     </button>
-
+                    <br />
                     <button onClick={() => this.props.openModal('Sign up')}>
                         Sign Up
                     </button>

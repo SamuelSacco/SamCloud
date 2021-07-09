@@ -4,7 +4,8 @@ import SongIndex from './song_index';
 
 const mSTP = (state) => {
     return ({
-        songs: Object.values(state.entities.songs)
+        songs: Object.values(state.entities.songs),
+        currentUserId: state.session.id
     })
 }
 

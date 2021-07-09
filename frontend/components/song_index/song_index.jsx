@@ -17,18 +17,18 @@ class SongIndex extends React.Component {
                 <ul>
                     {
                         this.props.songs.map(song => {
-                            return (
-                                <SongIndexItem
-                                    key={song.id}
-                                    song={song}
-                                    deleteSong={this.props.deleteSong} 
-                                />
-                            )
+                            if (song.artist_id === this.props.currentUserId){
+                                return (
+                                    <SongIndexItem
+                                        key={song.id}
+                                        song={song}
+                                        deleteSong={this.props.deleteSong} 
+                                    />
+                                )
+                            } 
                         })
                     }
                 </ul>
-
-                <Link to="/songs/new">Create New Song</Link>
             </>
         )
     }

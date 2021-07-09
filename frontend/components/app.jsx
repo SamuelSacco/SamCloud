@@ -14,10 +14,13 @@ import SongIndexItem from './song_index/song_index_item';
 
 const App = () => (
     <div>
+        {/* <SongFormContainer/> */}
+        <GreetingContainer/>
         <NavBarContainer />
         <ModalContainer />
         {/* <AudioPlayer /> */}
         <Switch>
+            <Route exact path="/songs" component={SongIndexContainer} />
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />
             <Route exact path="/songs/new" component={SongFormContainer} />

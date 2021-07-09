@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function SongIndexItem(props) {
-
-    const audio = new Audio()
+    const audio = new Audio(props.song.audio_url)
 
     const start = () => {
         audio.play()
     }
-
+    
     return (
         <>
+            <h1>{props.song.title}</h1>
+        <li>
             <button onClick={start}>Test Play</button>
             <button onClick={() => props.deletesong(props.song.id)}>Delete Song</button>
+        </li>
         </>
     )
 }
