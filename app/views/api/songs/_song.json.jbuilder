@@ -1,1 +1,2 @@
-json.extract! song, :title, :artist_id, :id
+json.extract! song, :id, :title, :artist_id
+json.set! :audio_url, url_for(song.audio)

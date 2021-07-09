@@ -8,26 +8,20 @@ import NavBarContainer from './navbar/nav_bar_container';
 import GreetingContainer from './greeting/greeting_container';
 import FilePicker from './file_picker/file_picker_container'
 import AudioPlayer from './audio_player/audio_player';
-// import ProfileHeaderContainer from './user_show_page/profile_header_container';
+import SongFormContainer from './song_form/song_form_container';
+import SongIndexContainer from './song_index/song_index_container';
+import SongIndexItem from './song_index/song_index_item';
 
 const App = () => (
     <div>
-        <AudioPlayer />
-        <GreetingContainer />
-        <ModalContainer />
         <NavBarContainer />
-        <header>
-            <img src={window.background} alt="logo" />
-        </header>
+        <ModalContainer />
+        {/* <AudioPlayer /> */}
         <Switch>
-            {/* <Route exact path="/users/:userId" component={ProfileHeaderContainer}/> */}
-            <Route exact path="/" />
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />
-            <Route exact path="/addsong/:userId" component={FilePicker}/>
+            <Route exact path="/songs/new" component={SongFormContainer} />
         </Switch>
-        <FilePicker />
-        
     </div>
 );
 

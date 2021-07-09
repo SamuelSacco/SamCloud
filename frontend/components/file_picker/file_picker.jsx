@@ -7,19 +7,17 @@ const FilePicker = (props) => {
     const [openFileSelector, { filesContent, loading }] = useFilePicker({
         accept: ['.txt', '.mp3', '.jpeg']
     });
-
+    
     if (loading) {
         return <div>Loading...</div>;
     }
-
+    
     for (let file of filesContent){
         let song = { title: file.name, artist_id: props.currentUserId }
-        props.createSong(song)
-        console.log(file.content)
-        let audio = new FormData.append("song[title]", file.name, file.content)
-        var audio = new Audio(file.content)
-        console.log(audio)
+        props.createSong(song) 
     }
+
+    let audio = new Audio("https://samcloud-dev.s3.amazonaws.com/d8ou462nZHJZLPSP5LSBCCYZ")
     
     const start = () => {
         audio.play()

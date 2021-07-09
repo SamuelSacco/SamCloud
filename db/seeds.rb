@@ -12,4 +12,3 @@ User.create({username: "Sam", email: "SamLSacco@gmail.com", password: "123456"})
 
 Song.delete_all
 User.connection.execute('ALTER SEQUENCE songs_id_seq RESTART WITH 1')
-Song.create({title: "Alive", artist_id: 1})

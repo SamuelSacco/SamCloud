@@ -12,12 +12,16 @@ export const fetchSong = (songId) => (
     })
 );
 
-export const createSong = (song) => (
+export const createSong = (formData) => (
     $.ajax({
         method: 'POST',
         url: '/api/songs',
-        data: { song }
+        data: formData,
+        contentType: false,
+        processData: false
     })
+    // .then(response => console.log(response.message)),
+    // response => console.log(response.responseJSON)
 );
 
 export const deleteSong = (songId) => {
