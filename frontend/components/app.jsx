@@ -8,6 +8,8 @@ import NavBarContainer from './navbar/nav_bar_container';
 import GreetingContainer from './greeting/greeting_container';
 import FilePicker from './file_picker/file_picker_container'
 import AudioPlayer from './audio_player/audio_player';
+// import ProfileHeaderContainer from './user_show_page/profile_header_container';
+
 const App = () => (
     <div>
         <AudioPlayer />
@@ -18,11 +20,11 @@ const App = () => (
             <img src={window.background} alt="logo" />
         </header>
         <Switch>
+            {/* <Route exact path="/users/:userId" component={ProfileHeaderContainer}/> */}
             <Route exact path="/" />
-            <Route exact path="/users/:userId" component={GreetingContainer}/>
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />
-            {/* <Route exact path="/addsong/:userId" component={FilePicker}/> */}
+            <Route exact path="/addsong/:userId" component={FilePicker}/>
         </Switch>
         <FilePicker />
         

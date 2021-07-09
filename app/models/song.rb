@@ -1,5 +1,8 @@
 class Song < ApplicationRecord
 
+    has_one_attached :photo
+    has_one_attached :audio
+
     belongs_to :user,
     primary_key: :id,
     foreign_key: :artist_id,

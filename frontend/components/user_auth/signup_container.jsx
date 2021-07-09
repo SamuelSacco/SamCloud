@@ -13,7 +13,6 @@ const mSTP = ({ errors }) => {
     };
 };
 
-
 const mDTP = dispatch => {
     return {
         processForm: (user) => dispatch(signup(user)),
@@ -22,7 +21,8 @@ const mDTP = dispatch => {
                 Login
             </button>
         ),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        login: (user) => dispatch(login(user)) // for logging in demo user
     };
 };
 

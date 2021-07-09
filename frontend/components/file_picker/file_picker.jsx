@@ -5,7 +5,7 @@ import { createSong } from '../../actions/song_actions';
 const FilePicker = (props) => {
     
     const [openFileSelector, { filesContent, loading }] = useFilePicker({
-        accept: ['.txt', '.mp3']
+        accept: ['.txt', '.mp3', '.jpeg']
     });
 
     if (loading) {
@@ -15,11 +15,20 @@ const FilePicker = (props) => {
     for (let file of filesContent){
         let song = { title: file.name, artist_id: props.currentUserId }
         props.createSong(song)
+        console.log(file.content)
+        let audio = new FormData.append("song[title]", file.name, file.content)
+        var audio = new Audio(file.content)
+        console.log(audio)
     }
     
+    const start = () => {
+        audio.play()
+    }
+
     return (
         <div>
-            <button onClick={() => openFileSelector()}>Upload Song</button>
+            <button onClick={() => openFileSelector()}>Choose File</button>
+            <button onClick={start}>Play me!</button>
         </div>
     );
 }

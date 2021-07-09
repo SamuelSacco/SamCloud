@@ -19,7 +19,7 @@ export const receiveSong = song => ({
 export const removeSong = (songId) => {
     return ({
         type: REMOVE_SONG,
-        songId
+        songId: songId
     })
 }
 

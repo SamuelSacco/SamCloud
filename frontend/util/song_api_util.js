@@ -3,9 +3,16 @@ export const fetchSongs = () => {
         method: "GET",
         url: `/api/songs`
     })
-}
+};
 
-export const createSong = song => (
+export const fetchSong = (songId) => (
+    $.ajax({
+        method: 'GET',
+        url: `api/songs/${songId}`
+    })
+);
+
+export const createSong = (song) => (
     $.ajax({
         method: 'POST',
         url: '/api/songs',
@@ -18,4 +25,4 @@ export const deleteSong = (songId) => {
         method: "DELETE",
         url: `/api/songs/${songId}`
     })
-}
+};
