@@ -13,7 +13,7 @@ function SongIndexItem(props) {
             <h1>{props.song.title}</h1>
         <li>
             <button onClick={start}>Test Play</button>
-            <button onClick={() => props.deletesong(props.song.id)}>Delete Song</button>
+            <button onClick={() => props.deleteSong(props.song.id)}>Delete Song</button>
         </li>
         </>
     )
