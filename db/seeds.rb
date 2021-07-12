@@ -5,13 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'open-uri'
+# require 'open-uri'
 
 User.delete_all
 User.connection.execute('ALTER SEQUENCE users_id_seq RESTART WITH 1')
 User.create({username: "Sam", email: "SamLSacco@gmail.com", password: "123456"})
 
 Song.delete_all
+ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
 User.connection.execute('ALTER SEQUENCE songs_id_seq RESTART WITH 1')
 
 
