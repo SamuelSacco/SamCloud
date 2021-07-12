@@ -24,11 +24,22 @@ body{
   }
 }
 
-.app{
+.width-wrapper{
     background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1222px;
+}
+
+// .test{
+//     color: red;
+// }
+
+.app{
+    background-color: rgb(242, 242, 242);
     // border: solid 1px red;
-    margin-left: 7vw;
-    margin-right: 7vw;
+    // margin-left: 18vw;
+    // margin-right: 18vw;
 }
 
 .carousel-photo{

@@ -31,8 +31,8 @@ class SongForm extends React.Component{
     }
 
     render (){
-        console.log("SongForm")
-        console.log(this.state)
+        // console.log("SongForm")
+        // console.log(this.state)
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>Title:
