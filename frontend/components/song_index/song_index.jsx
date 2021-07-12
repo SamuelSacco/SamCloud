@@ -8,9 +8,11 @@ class SongIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestSongs()
+        this.props.requestSongs().then(response =>
+            console.log(response)
+        )
     }
-
+    
     render() {
         return (
             <>

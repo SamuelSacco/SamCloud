@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# require 'open-uri'
+require 'open-uri'
 
 User.delete_all
 User.connection.execute('ALTER SEQUENCE users_id_seq RESTART WITH 1')
@@ -15,6 +15,12 @@ Song.delete_all
 ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
 User.connection.execute('ALTER SEQUENCE songs_id_seq RESTART WITH 1')
 
+bad_habits = Song.create!(title: "Bad Habits", artist_id: 1)
+bad_habits.audio.attach(io: File.open("/Users/samuel_sacco/Desktop/soundcloud_songs/bad_habits/Ed\ Sheeran\ -\ Bad\ Habits\ \(Lyrics\).mp3
+"), filename: "Bad_Habits.mp3")
+
+livin = Song.create!(title: "Livin La Vida Loca", artist_id: 1)
+livin.audio.attach(io: File.open("/Users/samuel_sacco/Desktop/soundcloud_songs/Ricky\ Martin\ -\ Livin\'\ La\ Vida\ Loca.mp3"), filename: "Livin_La_Vida.mp3")
 
 # TESTING SEEDING SONGS WITH CORRECT URLS
 # bad_habits = Song.create(title: "Bad Habits", artist_id: 1, )
@@ -23,5 +29,3 @@ User.connection.execute('ALTER SEQUENCE songs_id_seq RESTART WITH 1')
 # formData.append('song[title]', this.state.title)
 # formData.append('song[artist_id]', this.state.artist_id)
 # formData.append('song[audio]', this.state.audioFile)
-
-# bad_habits.audio.attach(io: File.open("/Users/samuel_sacco/Desktop/soundcloud_songs/bad_habits/Ed\ Sheeran\ -\ Bad\ Habits\ \[Official\ Video\].mp3"), filename: "Bad_Habits.mp3")
