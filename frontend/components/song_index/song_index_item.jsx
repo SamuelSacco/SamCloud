@@ -9,14 +9,12 @@ function SongIndexItem(props) {
     }
     
     return (
-        <>
-        {console.log(props)}
-            <h1>{props.song.title}</h1>
         <li>
+            <img className="thumbnails" src={props.song.photo_url} alt="test" />
+            <h1>{props.song.title}</h1>
             <button onClick={start}>Test Play</button>
             <button onClick={() => props.deleteSong(props.song.id)}>Delete Song</button>
         </li>
-        </>
     )
 }
 

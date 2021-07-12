@@ -27,6 +27,7 @@ class SongForm extends React.Component{
         formData.append('song[title]', this.state.title)
         formData.append('song[artist_id]', this.state.artist_id)
         formData.append('song[audio]', this.state.audioFile)
+        formData.append('song[photo]', this.state.photoFile)
         this.props.createSong(formData)
     }
 

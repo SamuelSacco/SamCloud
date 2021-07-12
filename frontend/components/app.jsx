@@ -24,10 +24,11 @@ const App = () => (
         <ModalContainer />
         {/* <AudioPlayer /> */}
         <Switch>
-            <Route exact path="/songs" component={SongIndexContainer} />
+            {/* <Route exact path="/songs" component={SongIndexContainer} /> */}
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />
             <Route exact path="/songs/new" component={SongFormContainer} />
+            <Route exact path="/users/:userId" component={SongFormContainer} />
         </Switch>
     </div>
 );

@@ -8,18 +8,16 @@ class SongIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestSongs().then(response =>
-            console.log(response)
-        )
+        this.props.requestSongs()
     }
     
     render() {
         return (
-            <>
+            <div className="songs">
                 <ul>
                     {
                         this.props.songs.map(song => {
-                            if (song.artist_id === this.props.currentUserId){
+                            // if (song.artist_id === this.props.currentUserId){
                                 return (
                                     <SongIndexItem
                                         key={song.id}
@@ -27,11 +25,11 @@ class SongIndex extends React.Component {
                                         deleteSong={this.props.deleteSong} 
                                     />
                                 )
-                            } 
+                            // } 
                         })
                     }
                 </ul>
-            </>
+            </div>
         )
     }
 }

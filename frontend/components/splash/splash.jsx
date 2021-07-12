@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NavBarContainer from '../navbar/nav_bar_container'
 import SongFormContainer from '../song_form/song_form_container'
 import { Link } from 'react-router-dom'
+import SongIndexContainer from '../song_index/song_index_container'
 
 export default class Splash extends Component {
     render() {
@@ -34,11 +35,11 @@ export default class Splash extends Component {
                         </div>
                     </div>
                 </div>
-                    <div className="test">
-                        test
+
+                    <div className="songs-index-container">
+                    <h1 className="songs-header-text">Hear what’s trending for free in the SamCloud community</h1>
+                        <SongIndexContainer />
                     </div>
-
-
             </div>
         )
     }

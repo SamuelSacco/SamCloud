@@ -168,3 +168,26 @@ body{
 .link-wrapper{
     display: flex;
 }
+
+.songs > ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.thumbnails{
+    height: 180px;
+    width: 180px;
+    padding: 20px;
+}
+
+.songs-header-text{
+    padding-top: 15px;
+    font-size: 24px;
+}
+
+.songs-index-container{
+    text-align: center;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}

@@ -14,12 +14,10 @@ class NavBar extends React.Component{
                     <h1>SamCloud</h1>
                 </Link> */}
                 {this.props.currentUser ? 
-                <div className="button">
-                    <button onClick={() => this.props.logout()}>
+                <div className="">
+                    <button className="sign-in button" onClick={() => this.props.logout()}>
                         Log out
                     </button>
-                    <br />
-                    <Link to="/songs/new">Upload song</Link>
                 </div>
                 :
                 <div className="link-wrapper">

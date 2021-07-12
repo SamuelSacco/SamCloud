@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import { deleteSong, requestSongs } from '../../actions/song_actions';
 import SongIndex from './song_index';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
     return ({
         songs: Object.values(state.entities.songs),
-        currentUserId: state.session.id
+        currentUserId: state.session.id,
+        test: ownProps
     })
 }
 
