@@ -9,12 +9,12 @@ class NavBar extends React.Component{
 
     render (){
         return (
-            <>
+            <div className="navBar">
                 {/* <Link to="/" className="header-link">
                     <h1>SamCloud</h1>
                 </Link> */}
                 {this.props.currentUser ? 
-                <div>
+                <div className="button">
                     <button onClick={() => this.props.logout()}>
                         Log out
                     </button>
@@ -22,18 +22,21 @@ class NavBar extends React.Component{
                     <Link to="/songs/new">Upload song</Link>
                 </div>
                 :
-                <div>
-                    <button onClick={() => this.props.openModal('Sign in')}>
+                <div className="link-wrapper">
+                    <button className="sign-in button" onClick={() => this.props.openModal('Sign in')}>
                         Sign In
                     </button>
                     <br />
-                    <button onClick={() => this.props.openModal('Sign up')}>
-                        Sign Up
+                    <button className="sign-up button" onClick={() => this.props.openModal('Sign up')}>
+                        Create account
+                    </button>
+                    <button className="for-creators button">
+                        For Creators
                     </button>
                 </div>
                 }
 
-            </>
+            </div>
         )
     }
 }

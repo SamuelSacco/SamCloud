@@ -11,12 +11,16 @@ import AudioPlayer from './audio_player/audio_player';
 import SongFormContainer from './song_form/song_form_container';
 import SongIndexContainer from './song_index/song_index_container';
 import SongIndexItem from './song_index/song_index_item';
+import Test from './test';
+import Splash from './splash/splash';
 
 const App = () => (
-    <div>
+    <div className="app">
+        {/* <Test/> */}
         {/* <SongFormContainer/> */}
-        <GreetingContainer/>
-        <NavBarContainer />
+        {/* <NavBarContainer /> */}
+        <Splash />
+        {/* <GreetingContainer/> */}
         <ModalContainer />
         {/* <AudioPlayer /> */}
         <Switch>
