@@ -9,7 +9,8 @@ const mSTP = (state) => {
         song: {
             title: "",
             artist_id: state.session.id,
-            audioFile: null
+            audioFile: null,
+            photoFile: null
         }
     })
 }

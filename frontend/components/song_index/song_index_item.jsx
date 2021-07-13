@@ -10,7 +10,7 @@ function SongIndexItem(props) {
     
     return (
         <li>
-            <img className="thumbnails" src={props.song.photo_url} alt="test" />
+            <img className="thumbnails" src={props.song.photo_url ? props.song.photo_url : "no-image.png"} alt="img not found" />
             <h1>{props.song.title}</h1>
             <button onClick={start}>Test Play</button>
             <button onClick={() => props.deleteSong(props.song.id)}>Delete Song</button>

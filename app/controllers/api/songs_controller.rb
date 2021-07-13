@@ -12,10 +12,14 @@ class Api::SongsController < ApplicationController
   
   def create
     puts "Creating Song"
-    @song = Song.new(song_params)
+    if song_params["photo"] == "null"
+      @song = Song.new(title: song_params["title"], artist_id: song_params["artist_id"], audio: song_params[:audio])
+    else
+      @song = Song.new(song_params)
+    end
     puts "After create"
 
-    if @song.save
+    if @song.save!
       puts "success save"
       render :show
     else
@@ -46,6 +50,6 @@ class Api::SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit(:title, :artist_id, :description, :audio)
+    params.require(:song).permit(:title, :artist_id, :description, :audio, :photo)
   end
 end
