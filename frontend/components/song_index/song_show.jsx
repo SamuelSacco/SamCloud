@@ -37,11 +37,6 @@ class SongShow extends React.Component {
             
     render() {
         console.log(this.props)
-        let comment =  {
-            body: "",
-            user_id: this.props.currentUser.id,
-            song_id: this.props.songId
-        }
 
         if (this.props.song === undefined){
             return null

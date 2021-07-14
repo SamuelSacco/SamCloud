@@ -8,6 +8,7 @@ import { createComment, receiveComment } from './actions/comments_actions';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
+        // debugger 
         const preloadedState = {
             session: { id: window.currentUser.id },
             entities: {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore(preloadedState);
         delete window.currentUser;
     } else {
+        // debugger
         store = configureStore();
     }
 
