@@ -14,6 +14,7 @@ const songsReducer = (oldState = {}, action) => {
         case REMOVE_SONG:
             let newState = Object.assign({}, oldState)
             delete newState[action.songId]
+            return newState
         default:
             return oldState;
     }

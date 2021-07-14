@@ -1,6 +1,7 @@
 import React from 'react'
 import WaveSurfer from 'wavesurfer.js'
 import CommentsForm from '../comments_form/comments_form'
+import CommentsFormContainer from '../comments_form/comments_form_container'
 import CommentIndexItem from '../comments_form/comment_index_item'
 
 class SongShow extends React.Component {
@@ -16,17 +17,17 @@ class SongShow extends React.Component {
     componentDidMount() {
         this.props.requestSong(this.props.songId)
         this.props.requestComments()
+        // if (this.props.song !== undefined){
+        //     let wavesurfer = WaveSurfer.create({
+        //         container: '#waveform',
+        //         scrollParent: true
+        //     });
+    
+        //     wavesurfer.load(this.props.song.audio_url);
+        // }
     }
     
     componentDidUpdate(){
-        if (this.props.song !== undefined){
-            let wavesurfer = WaveSurfer.create({
-                container: '#waveform',
-                scrollParent: true
-            });
-
-            wavesurfer.load(this.props.song.audio_url);
-        }
     }
             
     start = () => {
@@ -66,27 +67,29 @@ class SongShow extends React.Component {
                         <img  className="song-show-image" src={this.props.song.photo_url ? this.props.song.photo_url : "no_image.png"} alt="" />
                     </div>
                     <div>
-                        <CommentsForm comment={comment} createComment={this.props.createComment}/>
+                        {/* <CommentsForm comment={comment} createComment={this.props.createComment}/>
+                         */}
+                         <CommentsFormContainer/>
                     </div>
                     <div>
-                            <ul>
-                                {
-                                    this.props.comments ? 
-                                    this.props.comments.map(comment => {
-                                        if (comment.song_id === parseInt(this.props.songId)){
-                                        return (
-                                            <CommentIndexItem
-                                                key={comment.id}
-                                                comment={comment}
-                                                deleteComment={this.props.deleteComment}
-                                            />
-                                        )
-                                        } 
-                                    })
-                                    :
-                                    "nah"
-                                }
-                            </ul>
+                        <ul>
+                            {
+                                // this.props.comments ? 
+                                this.props.comments.map(comment => {
+                                    if (comment.song_id === parseInt(this.props.songId)){
+                                    return (
+                                        <CommentIndexItem
+                                            key={comment.id}
+                                            comment={comment}
+                                            deleteComment={this.props.deleteComment}
+                                        />
+                                    )
+                                    } 
+                                })
+                                // :
+                                // "nah"
+                            }
+                        </ul>
                     </div>
                 </div>
                 </>
