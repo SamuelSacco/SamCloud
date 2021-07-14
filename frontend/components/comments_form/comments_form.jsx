@@ -24,10 +24,11 @@ export default class CommentsForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="text-box-container">
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="">
-                        <input 
+                        <input
+                        className="comment-form-text-box" 
                         type="text" 
                         placeholder="Write a comment"
                         value={this.state.body}

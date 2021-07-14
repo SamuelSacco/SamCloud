@@ -61,30 +61,40 @@ class SongShow extends React.Component {
                         </div>
                         <img  className="song-show-image" src={this.props.song.photo_url ? this.props.song.photo_url : "no_image.png"} alt="" />
                     </div>
-                    <div>
-                        {/* <CommentsForm comment={comment} createComment={this.props.createComment}/>
-                         */}
-                         <CommentsFormContainer/>
-                    </div>
-                    <div>
-                        <ul>
-                            {
-                                // this.props.comments ? 
-                                this.props.comments.map(comment => {
-                                    if (comment.song_id === parseInt(this.props.songId)){
-                                    return (
-                                        <CommentIndexItem
-                                            key={comment.id}
-                                            comment={comment}
-                                            deleteComment={this.props.deleteComment}
-                                        />
-                                    )
-                                    } 
-                                })
-                                // :
-                                // "nah"
-                            }
-                        </ul>
+
+                    <div className="page-content-container">
+                        <div className="form-content">
+
+                            <div className="form-container">
+                                    {/* <CommentsForm comment={comment} createComment={this.props.createComment}/>
+                                    */}
+                                    <CommentsFormContainer/>
+                            </div>
+                            <div className="comment-index-item-container">
+                                <ul>
+                                    {
+                                        // this.props.comments ? 
+                                        this.props.comments.map(comment => {
+                                            if (comment.song_id === parseInt(this.props.songId)){
+                                            return (
+                                                <CommentIndexItem
+                                                    key={comment.id}
+                                                    comment={comment}
+                                                    deleteComment={this.props.deleteComment}
+                                                    currentUser={this.props.currentUser}
+                                                />
+                                            )
+                                            } 
+                                        })
+                                        // :
+                                        // "nah"
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="git-link">
+                            <h1>hello test</h1>
+                        </div>
                     </div>
                 </div>
                 </>

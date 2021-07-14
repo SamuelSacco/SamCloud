@@ -263,3 +263,78 @@ body{
     border-width: 15px 0 15px 26.0px;
     border-color: transparent transparent transparent #ffffff;
 }
+
+.page-content-container{
+    // border: solid 1px red;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.git-link{
+    // border: solid 1px red;
+    width: 20%;
+}
+
+.form-content{
+    // border: solid 1px red;
+    padding: 5px;
+    width: 60%;
+    height: 100%;
+
+    .form-container{
+        border: solid 1px rgb(199, 194, 194);
+        border-radius: 2px;
+        background:	rgb(242,242,242);
+        height: 34px;
+        // padding-top: 7px;
+        padding-left: 7px;
+        padding-top: 7px;
+        
+        .comment-form-text-box{
+            margin: auto;
+            height: 20px;
+            width: 97.5%;
+        }
+        
+    }
+    
+    .comment-index-item-container{
+        // border: solid 1px red;
+        // width: 50%;
+        padding: 5px;
+    }
+    
+    .comments-index-container{
+        // border: solid 1px red;
+        padding: 2px;
+        display: flex;
+        justify-content: space-between;
+        background:	rgb(242,242,242);
+        border-radius: 2px;
+        height: 40px;
+        width: 100%;
+        // height: 100px;
+    }
+
+    .delete-comment-wrapper{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        height: 20px;
+    }
+    
+
+    .time-ago-delete-button{
+        height: 12px;
+    }
+
+    .delete-comment{
+        height: 14px;
+        width: 14px;
+        background: url("garbage.png");
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+    }
+}
