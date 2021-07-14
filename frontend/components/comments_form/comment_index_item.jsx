@@ -6,7 +6,7 @@ function CommentIndexItem(props){
             <div className="comments-index-container">
                 <div>
                         <div>
-                            {props.comment.name}
+                            {props.comment.commenter}
                         </div>
                         
                         <div className="comment-body-wrapper">

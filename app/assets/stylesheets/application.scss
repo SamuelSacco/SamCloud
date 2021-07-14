@@ -174,13 +174,33 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    li {
+        position: relative;
+        .thumbnail-button{
+            background-color: #f50;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            height: 48px;
+            width: 48px;
+            border: none;
+        }
+        &:hover *{
+            cursor: pointer;
+        }
+        &:hover .thumbnail-button{
+            opacity: 1;
+        }
+    }
 }
 
 .thumbnails{
     height: 180px;
     width: 180px;
     padding: 10px;
-    cursor: pointer;
 }
 
 .songs-header-text{
@@ -260,6 +280,7 @@ body{
     border-style: solid;
     border-width: 15px 0 15px 26.0px;
     border-color: transparent transparent transparent #ffffff;
+    transform: scaleZ(10);
 }
 
 .page-content-container{
@@ -335,4 +356,7 @@ body{
         border: none;
         cursor: pointer;
     }
+
+
+
 }
