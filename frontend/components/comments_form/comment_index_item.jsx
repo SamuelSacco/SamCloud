@@ -4,14 +4,14 @@ function CommentIndexItem(props){
     
         return (
             <div className="comments-index-container">
-                {console.log(props.comment)}
                 <div>
-                    <div>
-                        {props.comment.name}
-                    </div>
-                        {props.comment.body}
-                    <div>
-                    </div>
+                        <div>
+                            {props.comment.name}
+                        </div>
+                        
+                        <div className="comment-body-wrapper">
+                            {props.comment.body}
+                        </div>
                 </div>
 
                 <div className="time-ago-delete-button">
@@ -26,7 +26,7 @@ function CommentIndexItem(props){
                                 onClick={() => props.deleteComment(props.comment.id)}>
                                 </button>
                             :
-                                // console.log(props.currentUser, props.comment)
+
                                 null
                         }
                     </div>

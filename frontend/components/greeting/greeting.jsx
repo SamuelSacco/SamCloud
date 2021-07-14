@@ -4,7 +4,6 @@ class Greeting extends React.Component{
     constructor(props){
         super(props)
     }
-    // console.log("greeting", props)
 
     componentDidMount(){
         this.props.requestSongs()

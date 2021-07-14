@@ -20,8 +20,6 @@ export const createSong = (formData) => (
         contentType: false,
         processData: false
     })
-    // .then(response => console.log(response.message)),
-    // response => console.log(response.responseJSON)
 );
 
 export const deleteSong = (songId) => {
