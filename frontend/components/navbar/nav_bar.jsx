@@ -14,7 +14,7 @@ class NavBar extends React.Component{
                     <h1>SamCloud</h1>
                 </Link> */}
                 {this.props.currentUser ? 
-                <div className="">
+                <div className="modal-test">
                     <button className="sign-in button" onClick={() => this.props.logout()}>
                         Log out
                     </button>

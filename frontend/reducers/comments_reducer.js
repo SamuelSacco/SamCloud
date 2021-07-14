@@ -2,18 +2,18 @@ import {
     RECEIVE_COMMENTS,
     RECEIVE_COMMENT,
     REMOVE_COMMENT
-} from '../actions/song_actions';
+} from '../actions/comments_actions';
 
 const commentsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_COMMENTS:
-            return action.songs
+            return action.comments
         case RECEIVE_COMMENT:
-            return { [action.song.id]: action.song };
+            return Object.assign({}, oldState, {[action.comment.id]: action.comment});
         case REMOVE_COMMENT:
             let newState = Object.assign({}, oldState)
-            delete newState[action.songId]
+            delete newState[action.commentId]
         default:
             return oldState;
     }

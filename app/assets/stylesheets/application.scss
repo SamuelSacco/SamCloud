@@ -91,6 +91,7 @@ body{
             font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: 200;
             font-size: 41px;
+            margin-right: 16px;
             // font-weight: 100;
             // width: 100%;
             // height: 100%;
@@ -178,16 +179,85 @@ body{
 .thumbnails{
     height: 180px;
     width: 180px;
-    padding: 20px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .songs-header-text{
-    padding-top: 15px;
+    padding: 15px;
+    padding-bottom: 1px;
     font-size: 24px;
 }
 
 .songs-index-container{
     text-align: center;
     font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
+.sign-in-wrapper{
+    width: 100%
+}
+
+.songs h1{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 11px;
+    font-size: 14px;
+    // font-weight: lighter;
+}
+
+.song-show-button {
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  background-color: #f50;
+  border-radius: 50%;
+  border: 0;
+  color: white;
+}
+
+.song-show-image{
+    height: 340px;
+    width: 340px;
+    padding: 20px
+}
+
+.song-show-header{
+    display: flex;
+    justify-content: space-between;
+    height: 380px;
+    width: 100%;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%);
+}
+
+.show-text-container{
+    height: 40px;
+    background: black;
+    padding: 3px;
+}
+
+.button-title{
+    display: flex;
+    padding: 20px;
+}
+
+.show-text{
+    font-size: 36px;
+    color: white;
+    padding-left: 10px;
+    padding-top: 3px;
+}
+
+.triangle{
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: 8px;
+    right: auto;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 26.0px;
+    border-color: transparent transparent transparent #ffffff;
 }

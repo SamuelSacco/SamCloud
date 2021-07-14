@@ -87,7 +87,7 @@ class SessionForm extends React.Component {
         }
 
         return (
-            <div>
+            <div className="sign-in-wrapper">
                 {/* <h1>
                     <Link to='/' className={"logo"} >
                         SamCloud

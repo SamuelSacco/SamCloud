@@ -13,22 +13,25 @@ import SongIndexContainer from './song_index/song_index_container';
 import SongIndexItem from './song_index/song_index_item';
 import Test from './test';
 import Splash from './splash/splash';
+import SongShowContainer from './song_index/song_show_container';
 
 const App = () => (
     <div className="app">
         {/* <Test/> */}
         {/* <SongFormContainer/> */}
         {/* <NavBarContainer /> */}
-        <Splash />
         {/* <GreetingContainer/> */}
         <ModalContainer />
+        {/* <Splash /> */}
         {/* <AudioPlayer /> */}
         <Switch>
+            <Route exact path="/" component={Splash}></Route>
             {/* <Route exact path="/songs" component={SongIndexContainer} /> */}
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />
             <Route exact path="/songs/new" component={SongFormContainer} />
-            <Route exact path="/users/:userId" component={SongFormContainer} />
+            {/* <Route exact path="/users/:userId" component={SongFormContainer} /> */}
+            <Route exact path="/songs/:songId" component={SongShowContainer} />
         </Switch>
     </div>
 );

@@ -30,6 +30,13 @@ export const requestSongs = () => dispatch => {
     )
 }
 
+export const requestSong = (songId) => dispatch => {
+    return (
+        APIUtil.fetchSong(songId)
+            .then(song => dispatch(receiveSong(song)))
+    )
+}
+
 export const createSong = song => dispatch => (
     APIUtil.createSong(song).then(song => (
         dispatch(receiveSong(song))
