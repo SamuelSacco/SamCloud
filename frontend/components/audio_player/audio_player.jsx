@@ -1,19 +1,39 @@
-import React from 'react'
+import React, { useState } from "react";
+import "./styles.scss";
 
-class AudioPlayer extends React.Component {
-    render() {
-        var audio = new Audio("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ccac62f4d22873afd8aae5e1e2170ef51ad24baf/THINK%20ABOUT%20US%20-%20AA%20MIX%20v3.mp3")
+import Waveform from "./Waveform";
+import PlayList from "./PlayList";
 
-        const start = () => {
-            audio.play()
-        }
+// const url = "https://www.mfiles.co.uk/mp3-downloads/gs-cd-track2.mp3";
 
-        return (
-            <>
-                <button onClick={start}>Test Play</button>
-            </>
-        );
+const tracks = [
+    {
+        id: 0,
+        title: "Brahms: St Anthony Chorale - Theme, Two Pianos Op.56b",
+        url:
+            "https://www.mfiles.co.uk/mp3-downloads/brahms-st-anthony-chorale-theme-two-pianos.mp3"
+    },
+    {
+        id: 1,
+        title: "Franz Schubert's Ständchen - Voice (Clarinet) & Piano",
+        url:
+            "https://www.mfiles.co.uk/mp3-downloads/franz-schubert-standchen-serenade.mp3"
     }
-}
+];
 
-export default AudioPlayer;
+export default function AudioPlayer() {
+    const [selectedTrack, setSelectedTrack] = useState(tracks[0]);
+
+    return (
+        <div className="App">
+            <Waveform url={selectedTrack.url} />
+            <PlayList
+                tracks={tracks}
+                selectedTrack={selectedTrack}
+                setSelectedTrack={setSelectedTrack}
+            />
+            <br />
+            <p>Wavesurfer.js with React.JS</p>
+        </div>
+    );
+}

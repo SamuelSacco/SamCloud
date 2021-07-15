@@ -269,6 +269,10 @@ body{
     padding-top: 3px;
 }
 
+.pause-image{
+    color: white;
+}
+
 .triangle{
     position: relative;
     top: auto;
@@ -280,6 +284,20 @@ body{
     border-style: solid;
     border-width: 15px 0 15px 26.0px;
     border-color: transparent transparent transparent #ffffff;
+    transform: scaleZ(10);
+}
+
+.square{
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: 8px;
+    right: auto;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 26.0px;
+    border-color: transparent transparent transparent #f50303;
     transform: scaleZ(10);
 }
 
@@ -357,6 +375,6 @@ body{
         cursor: pointer;
     }
 
-
-
+    
 }
+
