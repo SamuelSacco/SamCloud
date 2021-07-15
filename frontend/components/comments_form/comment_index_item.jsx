@@ -1,7 +1,23 @@
 import React, { Component } from 'react'
 
 function CommentIndexItem(props){
-    
+    let deleteCommentsDiv = null;
+
+    if (props.currentUser){
+        deleteCommentsDiv = 
+        <div className="delete-comment-wrapper">
+            {
+                props.currentUser.id === props.comment.user_id ?
+                    <button
+                        className="delete-comment"
+                        onClick={() => props.deleteComment(props.comment.id)}>
+                    </button>
+                    :
+                    null
+            }
+        </div>
+    }
+
         return (
             <div className="comments-index-container">
                 <div>
@@ -18,20 +34,9 @@ function CommentIndexItem(props){
                     <div>
                         {props.comment.created + " ago"}
                     </div>
-                    <div className="delete-comment-wrapper">
-                        {
-                            props.currentUser.id === props.comment.user_id ?
-                                <button 
-                                className="delete-comment" 
-                                onClick={() => props.deleteComment(props.comment.id)}>
-                                </button>
-                            :
 
-                                null
-                        }
-                    </div>
+                    {deleteCommentsDiv}
                 </div>
-
             </div>
         )
 }

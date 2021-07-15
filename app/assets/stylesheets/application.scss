@@ -374,13 +374,19 @@ body{
         border: none;
         cursor: pointer;
     }
-
-    
     
 }
 
 .waveform-component{
     position: absolute;
-    top: 150px;
-    left: 75px;
+    top: 200px;
+    width: 800px;
+}
+
+.widest{
+    width: inherit;
+}
+
+.waveform{
+    width: inherit;
 }

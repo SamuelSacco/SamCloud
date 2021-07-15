@@ -7,16 +7,17 @@ const formWaveSurferOptions = ref => ({
     waveColor: "#eee",
     progressColor: "OrangeRed",
     cursorColor: "OrangeRed",
-    barWidth: 3,
+    barWidth: 2,
     barRadius: 3,
     responsive: true,
     height: 150,
     normalize: true,
-    // Use the PeakCache to improve rendering speed of large waveforms.
+
     partialRender: true
 });
 
-export default function Waveform({ url }) {
+export default function Waveform(props) {
+    const url = props.url
     const waveformRef = useRef(null);
     const wavesurfer = useRef(null);
     const [playing, setPlay] = useState(false);
@@ -26,8 +27,7 @@ export default function Waveform({ url }) {
     // setPlay(banana) = this.setState({playing: (banana)})
     const [volume, setVolume] = useState(0.5);
 
-    // create new WaveSurfer instance
-    // On component mount and when url changes
+    // makes WaveSurfer instance whenever the url changes/ mount
     useEffect(() => {
         setPlay(false);
 
@@ -37,19 +37,17 @@ export default function Waveform({ url }) {
         wavesurfer.current.load(url);
 
         wavesurfer.current.on("ready", function () {
-            // https://wavesurfer-js.org/docs/methods.html
-            // wavesurfer.current.play();
-            // setPlay(true);
+            // setPlay(true) = this.setState({playing: true})
 
             // make sure object stillavailable when file loaded
+            // checks if file is still available
             if (wavesurfer.current) {
                 wavesurfer.current.setVolume(volume);
                 setVolume(volume);
             }
         });
 
-        // Removes events, elements and disconnects Web Audio nodes.
-        // when component unmount
+        // deletes shit
         return () => wavesurfer.current.destroy();
     }, [url]);
 
@@ -69,11 +67,11 @@ export default function Waveform({ url }) {
     };
 
     return (
-        <div>
+        <div className="widest">
             <div id="waveform" ref={waveformRef} />
             <div className="controls">
-                <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button>
-                <input
+                <button onClick={handlePlayPause}>{!playing ? "test play" : "test pause"}</button>
+                {/* <input
                     type="range"
                     id="volume"
                     name="volume"
@@ -84,8 +82,8 @@ export default function Waveform({ url }) {
                     step=".025"
                     onChange={onVolumeChange}
                     defaultValue={volume}
-                />
-                <label htmlFor="volume">Volume</label>
+                /> */}
+                {/* <label htmlFor="volume">Volume</label> */}
             </div>
         </div>
     );
