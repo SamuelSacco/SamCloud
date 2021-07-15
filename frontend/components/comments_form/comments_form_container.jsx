@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { createComment } from "../../actions/comments_actions";
+import { createComment, updateComment } from "../../actions/comments_actions";
 import CommentsForm from "./comments_form";
 const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id],
@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    createComment: track => dispatch(createComment(track))
+    createComment: comment => dispatch(createComment(comment)),
+    updateComment: comment => dispatch(updateComment(comment))
 });
 // 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentsForm));

@@ -1,9 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { createComment, requestComments, deleteComment } from '../../actions/comments_actions';
+import { createComment, requestComments, deleteComment, updateComment } from '../../actions/comments_actions';
 import { requestSong } from '../../actions/song_actions'
 import SongShow from './song_show'
-
 const mSTP = (state, ownProps) => {
     return ({
         currentUser: state.entities.users[state.session.id],
@@ -18,7 +17,9 @@ const mDTP = dispatch => {
         requestSong: (songId) => dispatch(requestSong(songId)),
         createComment: (comment) => dispatch(createComment(comment)),
         requestComments: () => dispatch(requestComments()),
-        deleteComment: (commentId) => dispatch(deleteComment(commentId))
+        deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+        updateComment: (comment) => dispatch(updateComment(comment))
+
     }
 }
 

@@ -23,7 +23,7 @@ export default class CommentsForm extends Component {
     }
 
     render() {
-        if (this.props.currentUser !== undefined){
+        if (this.props.currentUser){
             return (
                 <div className="text-box-container">
                     <form onSubmit={this.handleSubmit}>

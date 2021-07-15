@@ -13,6 +13,8 @@ import SongIndexItem from './song_index/song_index_item';
 import Splash from './splash/splash';
 import SongShowContainer from './song_index/song_show_container';
 import AudioPlayer from './audio_player/audio_player';
+// import EditCommentsForm from './comments_form/edit_comments';
+import EditCommentsContainer from './comments_form/edit_comments_form_container';
 
 const App = () => (
     <div className="app">
@@ -25,11 +27,11 @@ const App = () => (
         {/* <AudioPlayer /> */}
         <Switch>
             <Route exact path="/" component={Splash}></Route>
-            {/* <Route exact path="/songs" component={SongIndexContainer} /> */}
+            <Route exact path="/songs" component={SongIndexContainer} />
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />
             <Route exact path="/songs/new" component={SongFormContainer} />
-            {/* <Route exact path="/users/:userId" component={SongFormContainer} /> */}
+            <Route exact path="/users/:userId" component={SongFormContainer} />
             <Route exact path="/songs/:songId" component={SongShowContainer} />
             <Route exact path="/wavetest" component={AudioPlayer} />
 

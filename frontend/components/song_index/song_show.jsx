@@ -78,6 +78,7 @@ class SongShow extends React.Component {
                                                     key={comment.id}
                                                     comment={comment}
                                                     deleteComment={this.props.deleteComment}
+                                                    updateComment={this.props.updateComment}
                                                     currentUser={this.props.currentUser}
                                                 />
                                             )

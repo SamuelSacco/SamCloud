@@ -30,6 +30,13 @@ export const requestComments = () => dispatch => {
     )
 };
 
+export const requestComment = (commentId) => dispatch => {
+    return (
+        APIUtil.fetchComment(commentId)
+            .then(comment => dispatch(receiveComment(comment)))
+    )
+};
+
 export const createComment = comment => dispatch => (
     APIUtil.createComment(comment).then(comment => (
         dispatch(receiveComment(comment))
@@ -37,6 +44,13 @@ export const createComment = comment => dispatch => (
         dispatch(receiveErrors(err.responseJSON))
     ))
 );
+
+export const updateComment = (comment) => dispatch => {
+    return (
+        APIUtil.updateComment(comment)
+            .then(comment => dispatch(receiveComment(comment)))
+    )
+}
 
 export const deleteComment = (commentId) => dispatch => {
     return (
