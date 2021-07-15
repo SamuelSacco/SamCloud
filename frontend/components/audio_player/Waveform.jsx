@@ -11,7 +11,6 @@ const formWaveSurferOptions = ref => ({
     barRadius: 3,
     responsive: true,
     height: 150,
-    // If true, normalize by the maximum peak instead of 1.0.
     normalize: true,
     // Use the PeakCache to improve rendering speed of large waveforms.
     partialRender: true
@@ -21,6 +20,10 @@ export default function Waveform({ url }) {
     const waveformRef = useRef(null);
     const wavesurfer = useRef(null);
     const [playing, setPlay] = useState(false);
+    // this.state = {
+    //  playing: false
+    // }
+    // setPlay(banana) = this.setState({playing: (banana)})
     const [volume, setVolume] = useState(0.5);
 
     // create new WaveSurfer instance

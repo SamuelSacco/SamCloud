@@ -1,5 +1,6 @@
 import React from 'react'
 import WaveSurfer from 'wavesurfer.js'
+import AudioPlayer from '../audio_player/audio_player'
 import CommentsForm from '../comments_form/comments_form'
 import CommentsFormContainer from '../comments_form/comments_form_container'
 import CommentIndexItem from '../comments_form/comment_index_item'
@@ -8,8 +9,7 @@ class SongShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            play: false,
-            pause: true,
+            isPlaying: false,
             song: props.song,
         }
     }
@@ -17,22 +17,21 @@ class SongShow extends React.Component {
     componentDidMount() {
         this.props.requestSong(this.props.songId)
         this.props.requestComments()
-        // if (this.props.song !== undefined){
-        //     let wavesurfer = WaveSurfer.create({
-        //         container: '#waveform',
-        //         scrollParent: true
-        //     });
-    
-        //     wavesurfer.load(this.props.song.audio_url);
-        // }
     }
     
     componentDidUpdate(){
     }
             
-    start = () => {
-        const audio = new Audio(this.props.song.audio_url)
-        audio.play()
+    toggle = () => {
+        if (isPlaying){
+            this.setState({
+                isPlaying: false
+            })
+        } else {
+            this.setState({
+                isPlaying: true
+            })
+        }
     }
             
     render() {
@@ -55,9 +54,8 @@ class SongShow extends React.Component {
                                 <h1 className="show-text">{this.props.song.title}</h1>
                             </div>
                         </div>
-                        <div>
-                            <div id="waveform"></div>
-                        </div>
+                            <AudioPlayer 
+                            song={this.props.song}/>
                         <img  className="song-show-image" src={this.props.song.photo_url ? this.props.song.photo_url : "no_image.png"} alt="" />
                     </div>
 
