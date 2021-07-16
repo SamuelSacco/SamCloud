@@ -64,7 +64,7 @@ class SongForm extends React.Component{
 
                             <label>
                             <input
-                                className="email-sign-up"
+                                className=""
                                 type="file" 
                                 onChange={this.handleFile}
                                 />
@@ -72,7 +72,7 @@ class SongForm extends React.Component{
                                 <h1 className="upload-file">Choose Photo: </h1>
                             <label>
                                 <input
-                                    className="email-sign-up"
+                                    className=""
                                     type="file"
                                     onChange={this.handlePhotoFile} />
                             </label>
