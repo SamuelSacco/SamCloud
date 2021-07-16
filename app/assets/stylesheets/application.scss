@@ -215,8 +215,85 @@ body{
 }
 
 .sign-in-wrapper{
-    width: 100%
+    width: 400px;
+    height: 500px;
+    justify-content: center;
 }
+
+.demo-user-wrapper{
+    width: 400px;
+    height: 150px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    .demo-user-1{
+        width: 400px;
+        height: 40px;
+        margin-top: 20px;
+        background-color: rgb(53,120,229);
+        color: white;
+        font-size: 16px;
+        line-height: 18px;
+        padding: 10px 15px;
+        height: 40px;
+        border: none;
+        border-radius: 2px;
+        font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+        cursor: pointer;
+    }
+    
+
+    .demo-user-2{
+        width: 400px;
+        height: 40px;
+        margin-top: 20px;
+        background-color: white;
+        color: black;
+        font-size: 16px;
+        line-height: 18px;
+        padding: 10px 15px;
+        height: 40px;
+        border-radius: 2px;
+        border: solid 1px grey ;
+        font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+        cursor: pointer;
+    }
+    
+    .demo-user-3{
+        width: 400px;
+        height: 40px;
+        margin-top: 20px;
+        background-color: black;
+        color: white;
+        font-size: 16px;
+        line-height: 18px;
+        padding: 10px 15px;
+        height: 40px;
+        border: none;
+        border-radius: 2px;
+        font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+        cursor: pointer;        
+    }
+
+    .split-or{
+        display: flex;
+    }
+
+    .or{
+        display: inline-block;
+        width: 43%;
+        border-top: 1px solid #333;
+        content: " ";
+        position: absolute;
+        top: .7em;
+    }
+
+
+}
+
 
 .songs h1{
     display: flex;
@@ -339,7 +416,12 @@ body{
     .comment-index-item-container{
         // border: solid 1px red;
         // width: 50%;
-        padding: 5px;
+        padding-top: 5px;
+        padding-right: 4px;
+
+        .commenter-name{
+            padding-bottom: 6px;
+        }
     }
     
     .comments-index-container{
@@ -357,13 +439,16 @@ body{
     .delete-comment-wrapper{
         display: flex;
         justify-content: flex-end;
-        align-items: flex-end;
         height: 20px;
     }
     
 
     .time-ago-delete-button{
         height: 12px;
+
+        .date-in-words{
+            padding-bottom: 3px;
+        }
     }
 
     .delete-comment{
@@ -373,14 +458,15 @@ body{
         background-size: cover;
         border: none;
         cursor: pointer;
+        padding-top: 3px;
     }
     
 }
 
 .waveform-component{
     position: absolute;
-    top: 200px;
-    width: 800px;
+    top: 175px;
+    width: 725px;
 }
 
 .widest{

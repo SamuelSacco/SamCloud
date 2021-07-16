@@ -71,16 +71,14 @@ class SessionForm extends React.Component {
         const signupNames = () => {
             return (
                 <>
-                    <label>Email:
-                        <input type="text" value={this.state.email} onChange={this.update('email')} />
+                    <label>
+                        <input placeholder="  Email" className="email-sign-up" type="text" value={this.state.email} onChange={this.update('email')} />
                     </label>
-                    <br />
-                    <label>First name:
-                        <input type="text" value={this.state.fname} onChange={this.update('fname')} />
+                    <label>
+                        <input placeholder="  First name" className="email-sign-up" type="text" value={this.state.fname} onChange={this.update('fname')} />
                     </label>
-                    <br />
-                    <label>Last Name:
-                        <input type="text" value={this.state.lname} onChange={this.update('lname')} />
+                    <label>
+                        <input placeholder="  Last name" className="email-sign-up" type="text" value={this.state.lname} onChange={this.update('lname')} />
                     </label>
                 </>
             )
@@ -88,31 +86,73 @@ class SessionForm extends React.Component {
 
         return (
             <div className="sign-in-wrapper">
-                {/* <h1>
-                    <Link to='/' className={"logo"} >
-                        SamCloud
-                    </Link>
-                </h1> */}
-                <form onSubmit={this.handleSubmit} className={"centered"}>
-                    <h2>
-                        {this.props.formType}
-                    </h2>
-                    {this.renderErrors()}
-                    <label>Username:
-                        <input type="text" value={this.state.username} onChange={this.update('username')} />
-                    </label>
-                    <br />
+                <form onSubmit={this.handleSubmit} className="sign-in-centered">
 
-                    <label>Password:
-                        <input type="password" value={this.state.password} onChange={this.update('password')} />
-                    </label>
-                    <br />
-                    {this.props.formType === 'Sign up' ? signupNames() : ''}
-                    <input type="submit" value={this.props.formType} />
-                    <br />
-                    {this.props.otherForm}
-                    <button onClick= {this.handleDemoUserSubmit}>Demo User</button>
+                    <div className="demo-user-wrapper">
+                        <button onClick={this.handleDemoUserSubmit} className="demo-user-1">
+                            Continue with Demo User 1
+                        </button>
+                        <button onClick={this.handleDemoUserSubmit} className="demo-user-2">
+                            Continue with Demo User 2
+                        </button>
+                        <button onClick={this.handleDemoUserSubmit} className="demo-user-3">
+                            Continue with Demo User 3
+                        </button>
+                        
+                        {<h1 className="log-in">{this.props.formType}</h1>}
+                        
+                        <label>
+                            <input 
+                            className="username-sign-in" 
+                            type="text" 
+                            value={this.state.username} 
+                            onChange={this.update('username')} 
+                            placeholder="  Enter your username"
+                            />
+                        </label>
+
+                        <label>
+                            <input 
+                            className="password-sign-in"
+                            type="password" 
+                            value={this.state.password} 
+                            onChange={this.update('password')} 
+                            placeholder="  Enter your password"
+                            />
+                        </label>
+
+                        {this.props.formType === 'Sign up' ? signupNames() : ''}
+
+                        <button className="continue-sign-in">
+                            Continue
+                        </button>
+                        {/* <input 
+                        type="submit" 
+                        value={this.props.formType} 
+                        /> */}
+                        {/* other form button */}
+                        {/* {this.props.otherForm} */}
+                        <div>
+                            {
+                                this.props.formType === 'Sign In' ? 
+                                <div className="warning-text">
+                                <br />
+                                <p>
+                                    We may use your email and devices for updates and tips on SamCloud's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
+                                </p>
+                                <br />
+                                <p>
+                                    We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.
+                                </p>
+                                </div>
+                                :
+                                null
+                            }
+                        </div>
+                    </div>
+
                 </form>
+                {this.renderErrors()}
             </div>
         )
     }

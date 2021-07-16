@@ -30,12 +30,10 @@ export default class EditCommentsForm extends Component {
     }
     
     render() {
-        debugger
         if (!this.props.comment){
             console.log("no comment")
             return null
         }
-        debugger
         console.log("comment found")
         if (this.props.currentUser) {
             return (

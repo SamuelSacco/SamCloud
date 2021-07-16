@@ -7,6 +7,7 @@ export default function AudioPlayer(props) {
         <div className="waveform-component">
             <Waveform 
             url={props.song.audio_url} 
+            isPlaying={props.isPlaying}
             />
             <br />
         </div>

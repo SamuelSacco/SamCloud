@@ -23,39 +23,40 @@ class SongShow extends React.Component {
     }
             
     toggle = () => {
-        if (isPlaying){
-            this.setState({
-                isPlaying: false
-            })
-        } else {
-            this.setState({
-                isPlaying: true
-            })
-        }
+        this.setState({
+            isPlaying: !this.state.isPlaying
+        })
     }
             
     render() {
-
         if (this.props.song === undefined){
             return null
         } else {
-            
             return (
+                
                 <>
                 <div className="width-wrapper">
                     <script src="https://unpkg.com/wavesurfer.js"></script>
                     <div className="song-show-header">
                         <div className="button-title">
-                            <button onClick={this.start} className="song-show-button">
-                                <div className="triangle">
-                                </div>
+                            <button onClick={this.toggle} className="song-show-button">
+                                    {
+                                        this.state.isPlaying ?
+                                            <div className="pause-image">
+                                                Pause
+                                            </div>
+                                            :
+                                            <div className="triangle"></div>
+                                    }
                             </button>
                             <div className="show-text-container">
                                 <h1 className="show-text">{this.props.song.title}</h1>
                             </div>
                         </div>
                             <AudioPlayer 
-                            song={this.props.song}/>
+                            song={this.props.song}
+                            isPlaying={this.state.isPlaying}
+                            />
                         <img  className="song-show-image" src={this.props.song.photo_url ? this.props.song.photo_url : "no_image.png"} alt="" />
                     </div>
 
@@ -91,7 +92,7 @@ class SongShow extends React.Component {
                             </div>
                         </div>
                         <div className="git-link">
-                            <h1>hello test</h1>
+                            <h1></h1>
                         </div>
                     </div>
                 </div>

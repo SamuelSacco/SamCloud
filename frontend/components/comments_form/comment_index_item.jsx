@@ -43,12 +43,11 @@ class CommentIndexItem extends React.Component{
                 {
                     this.props.currentUser.id === this.props.comment.user_id ?
                     <div>
-                        <button onClick={this.isEditing}></button>
+                        <button onClick={this.isEditing}>Edit</button>
                         <button
                         className="delete-comment"
                         onClick={() => this.props.deleteComment(this.props.comment.id)}>
                         </button>
-
                     </div>
                         :
                         null
@@ -59,7 +58,7 @@ class CommentIndexItem extends React.Component{
             return (
                 <div className="comments-index-container">
                     <div>
-                            <div>
+                            <div className="commenter-name">
                                 {this.props.comment.commenter + ":"}
                             </div>
     
@@ -72,8 +71,7 @@ class CommentIndexItem extends React.Component{
                                     onChange={this.updateBody}/>
                                     <button onClick={this.handleSubmit}>Save</button>
                                 </div>
-
-                                :
+                            :
                             <div className="comment-body-wrapper">
                                 {this.props.comment.body}
                             </div>
@@ -81,7 +79,7 @@ class CommentIndexItem extends React.Component{
                     </div>
     
                     <div className="time-ago-delete-button">
-                        <div>
+                        <div className="date-in-words">
                             {this.props.comment.created + " ago"}
                         </div>
     
