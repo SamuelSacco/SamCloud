@@ -39,34 +39,52 @@ class SongForm extends React.Component{
         formData.append('song[artist_id]', this.state.artist_id)
         formData.append('song[audio]', this.state.audioFile)
         formData.append('song[photo]', this.state.photoFile)
-        this.props.createSong(formData)
+        this.props.createSong(formData).then((res) => this.props.history.push(`/songs/${res.song.id}`))
     }
 
+    
     render (){
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>Title:
-                    <input 
-                    type="text" 
-                    value={this.state.title}
-                    onChange={this.updateTitle}/>
-                </label>
-                <br />
-                <label>Audio File:
-                <input 
-                    type="file" 
-                    onChange={this.handleFile}/>
-                </label>
-                <br />
-                <label>Photo File:
-                    <input
-                        type="file"
-                        onChange={this.handlePhotoFile} />
-                </label>
-                <br />
-                <button>Create Song!</button>
-            </form>
+            <div className="width-wrapper">
+                <div className="single-line">
+                    <div className="double-border">
+                        <h1 className="upload-h1">Upload a Song!</h1>
+                    <div className="drag-drop">
+                        <form onSubmit={this.handleSubmit}>
+                                <label >
+                                <input 
+                                className="email-sign-up"
+                                type="text" 
+                                value={this.state.title}
+                                onChange={this.updateTitle}
+                                placeholder="Enter a title"/>
+                            </label>
+                            <h1 className="upload-file">Choose Audio: </h1>
+
+                            <label>
+                            <input
+                                className="email-sign-up"
+                                type="file" 
+                                onChange={this.handleFile}
+                                />
+                            </label>
+                                <h1 className="upload-file">Choose Photo: </h1>
+                            <label>
+                                <input
+                                    className="email-sign-up"
+                                    type="file"
+                                    onChange={this.handlePhotoFile} />
+                            </label>
+                            <br />
+                            <button className="submit-edit">Create Song!</button>
+                        </form>
+                    </div>
+                    
+                    </div>
+                </div>
+
+            </div>
         )
     }
 }

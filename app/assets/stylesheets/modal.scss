@@ -64,6 +64,20 @@
     font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
  }
 
+ .upload-h1{
+    font-size: 36px;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+ }
+ .upload-file{
+      font-size: 20px;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
+ }
+
  .email-sign-up{
     width: 400px;
     height: 40px;
@@ -108,4 +122,20 @@
     font-size: 12px;
     color: #999;
     line-height: 17px;
+ }
+
+
+ .submit-edit{
+   width: 400px;
+    height: 40px;
+    margin-top: 5px;
+    background-color: #f50;
+    color: white;
+    font-size: 16px;
+    line-height: 18px;
+    height: 40px;
+    border: solid 1px grey;
+    border-radius: 2px;
+    font-family: Interstate,Lucida Grande;
+    cursor: pointer;
  }

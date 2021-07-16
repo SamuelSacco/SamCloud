@@ -476,3 +476,32 @@ body{
 .waveform{
     width: inherit;
 }
+
+.single-line{
+    align-content: center;
+    padding-top: 50px;
+    width: 1000px;
+    height: 1000px;
+    margin-left: 100px;
+}
+
+.double-border{
+    border-bottom: solid 1px rgb(209, 209, 209);
+    border-top: solid 1px rgb(209, 209, 209);
+    height: 610px;
+}
+
+.drag-drop{
+    border: 1px solid #e0e0e0;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 12px -5px #000a00;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    width: 800px;
+    height: 388px;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    background: white;
+}

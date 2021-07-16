@@ -19,8 +19,6 @@ class SongShow extends React.Component {
         this.props.requestComments()
     }
     
-    componentDidUpdate(){
-    }
             
     toggle = () => {
         this.setState({
@@ -57,7 +55,7 @@ class SongShow extends React.Component {
                             song={this.props.song}
                             isPlaying={this.state.isPlaying}
                             />
-                        <img  className="song-show-image" src={this.props.song.photo_url ? this.props.song.photo_url : "no_image.png"} alt="" />
+                            <img className="song-show-image" src={this.props.song.photo_url || "no-image.png"} alt="" />
                     </div>
 
                     <div className="page-content-container">
