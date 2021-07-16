@@ -1,3 +1,4 @@
+
 # SamCloud
 
 SamCloud is a clone of SoundCloud built with Ruby on Rails, Redux and ReactJS. Nobody uses Ruby on Rails anymore but thats what App Academy teaches so here we are. With SamCloud, artists and musicians alike have the ability to upload songs for the internet to listen to and comment on.
@@ -9,6 +10,10 @@ SamCloud is a clone of SoundCloud built with Ruby on Rails, Redux and ReactJS. N
 SamClouds backend is built on Ruby on Rails, PostgreSQL. The frontend was built using React, Redux, and utilizes S3 for cloud storage.
 
 # Features
+
+## User Authentication
+
+<img width="1440" alt="Screen Shot 2021-07-16 at 9 57 06 AM" src="https://user-images.githubusercontent.com/76980320/125959491-1dd29c56-33f6-4bc9-b728-c26e4ddf254c.png">
 
 ## Audio Player
 
