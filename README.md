@@ -22,20 +22,7 @@ SamClouds utilizes wavesurfer.js an HTML 5 audio player and waveform visualizer,
 
 SamCloud allows users to choose an audio file and an optional image to upload to their unique user profile. 
 
-* Ruby version
+## Comments
+<img width="745" alt="Screen Shot 2021-07-16 at 9 52 51 AM" src="https://user-images.githubusercontent.com/76980320/125958873-f34d4f97-963f-4be7-9760-442571fa26ca.png">
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Once logged in users have the ability to comment on their favorite (or least favorite) songs. SamCloud also gives that user the ability to edit or delete said comment incase they were drunk when they made it (looking at you Raph).
