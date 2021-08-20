@@ -28,16 +28,23 @@ export default class Splash extends Component {
                             <br />
                             <h2 className="h2-text">Upload your first track and begin your journey. SamCloud gives you space to create, find your fans, and connect with other artists.</h2>
                             <br />
-                            <a href="https://samcloud-app.herokuapp.com/#/songs/new">
-                                <button className="start-upload button">Start uploading today
-                                </button>
-                            </a>
+                            {
+                                this.props.currentUserId ? 
+                                    // <a href="http://localhost:3000/#/songs/new">
+                                    <a href="https://samcloud-app.herokuapp.com/#/songs/new">
+                                        <button className="start-upload button">Start uploading today
+                                        </button>
+                                    </a>
+                                :
+                                    <button className="start-upload button" onClick={() => this.props.openModal('Sign in')}>Start uploading today!
+                                    </button>
+                            }
                         </div>
                     </div>
                 </div>
 
                     <div className="songs-index-container">
-                    <h1 className="songs-header-text">Hear what’s trending for free in the SamCloud community</h1>
+                        <h1 className="songs-header-text">Hear what’s trending for free in the SamCloud community</h1>
                         <SongIndexContainer />
                     </div>
             </div>

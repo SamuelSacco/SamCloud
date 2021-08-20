@@ -15,6 +15,7 @@ import SongShowContainer from './song_index/song_show_container';
 import AudioPlayer from './audio_player/audio_player';
 // import EditCommentsForm from './comments_form/edit_comments';
 import EditCommentsContainer from './comments_form/edit_comments_form_container';
+import SplashContainer from './splash/splash_container';
 
 const App = () => (
     <div className="app">
@@ -26,7 +27,7 @@ const App = () => (
         {/* <Splash /> */}
         {/* <AudioPlayer /> */}
         <Switch>
-            <Route exact path="/" component={Splash}></Route>
+            <Route exact path="/" component={SplashContainer}></Route>
             <Route exact path="/songs" component={SongIndexContainer} />
             <Route exact path="/login" component={SignInContainer} />
             <Route exact path="/signup" component={CreateAccountContainer} />

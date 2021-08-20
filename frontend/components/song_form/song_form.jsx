@@ -41,7 +41,6 @@ class SongForm extends React.Component{
         formData.append('song[photo]', this.state.photoFile)
         this.props.createSong(formData).then((res) => this.props.history.push(`/songs/${res.song.id}`))
     }
-
     
     render (){
 
@@ -49,7 +48,7 @@ class SongForm extends React.Component{
             <div className="width-wrapper">
                 <div className="single-line">
                     <div className="double-border">
-                        <h1 className="upload-h1">Upload a Song!</h1>
+                        {/* <h1 className="upload-h1">Upload a Song!</h1> */}
                     <div className="drag-drop">
                         <form onSubmit={this.handleSubmit}>
                                 <label >
