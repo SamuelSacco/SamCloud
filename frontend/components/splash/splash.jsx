@@ -43,11 +43,49 @@ export default class Splash extends Component {
                     </div>
                 </div>
 
-                    <div className="songs-index-container">
-                        <h1 className="songs-header-text">Hear what’s trending for free in the SamCloud community</h1>
-                        <SongIndexContainer />
+                <div className="songs-index-container">
+                    <h1 className="songs-header-text">Hear what’s trending for free in the SamCloud community</h1>
+                    <SongIndexContainer />
+                </div>
+
+                <div className="explore-wrapper">
+                    <button className="explore-trending button">Explore     trending playlists
+                    </button>
+                </div>
+
+                <div className="splash-devices">
+                    <div className="devices-img">
                     </div>
+                    <div className="txt-wrapper">
+                        <div className="h1-txt">
+                            <h1>Never stop listening</h1>
+                        </div>
+                        <div className="h1-gradient">
+
+                        </div>
+
+                        <div className="h2-txt">
+                            <h2>SamCloud is available on Web, iOS, Android, Sonos, Chromecast, and Xbox One... if you use the browser</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="creators">
+                    <div className="creators-container">
+                        <h2>
+                            Calling all creators
+                        </h2>
+                        <p>
+                            Get on SamCloud to connect with fans, share your sounds, and grow your audience. What are you waiting for?
+                        </p>
+                        <button>
+                            Find out more
+                        </button>
+                    </div>
+                </div>
+
             </div>
+            
         )
     }
 }
