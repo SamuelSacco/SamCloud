@@ -188,11 +188,11 @@ body{
             width: 48px;
             border: none;
         }
-        &:hover *{
-            cursor: pointer;
-        }
+        // &:hover *{
+        // }
         &:hover .thumbnail-button{
             opacity: 1;
+            cursor: pointer;
         }
     }
 }
@@ -511,6 +511,27 @@ body{
     color: red;
 }
 
+.explore-wrapper{
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 25px;
+}
+
+.explore-trending{
+    background-color: rgb(255, 85, 0);
+    border: none;
+    font-size: 20px;
+    font-weight: 325;
+    padding-right: 20px;
+    padding-left: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 24px;
+    margin-bottom: 30px;
+}
 .splash-devices{
     // border: solid 1px rgb(255, 0, 0);
     padding:0 60px;
@@ -593,27 +614,91 @@ body{
         border: 1.5px solid white;
         background-color: transparent;
     }
+
 }
 
-.explore-wrapper{
-    // border: 1px solid red;
+.thank-you-wrapper{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding-top: 5px;
-    padding-bottom: 25px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    color: #333;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+
+    h1{
+        font-size: 36px;
+    }
+
+    p{
+        font-size: 26px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+    
+    }
+
+    .big-sign-up{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(255, 85, 0);
+        font-weight: 200;
+        cursor: pointer;
+        margin-right: 8px;
+        font-size: 20px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        border-radius: 3px;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 46px;
+        color: white;
+        border: none;
+        margin-top: 15px;
+    }
+
+    .white-sign{
+        cursor: pointer;
+        margin-right: 8px;
+        margin-left: 8px;
+        font-size: 15px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        border-radius: 3px;
+        padding-left: 15px;
+        padding-right: 15px;
+        height: 36px;
+        color: black;
+        font-weight: 200;
+        border: 1.5px solid rgb(228, 228, 228);
+        background-color: transparent;
+    }
 }
 
-.explore-trending{
-    background-color: rgb(255, 85, 0);
-    border: none;
-    font-size: 20px;
-    font-weight: 325;
-    padding-right: 20px;
-    padding-left: 24px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    margin-top: 24px;
-    margin-bottom: 30px;
+.small-wrapper{
+    margin-top: 15px;
+    margin-bottom: 50px;
 }
 
+.footer{
+    height: 25px;
+    width: 100%;
+    display: flex;
+    margin-left: 25px;
+    margin-top: 10px;
+    
+    a{
+        text-decoration: none;
+        color: #ccc;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-weight: 100;
+        font-size: 14px;
+    }
+}
+.p-footer{
+    margin-left: 25px;
+    height: 40px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+}

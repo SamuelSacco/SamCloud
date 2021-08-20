@@ -84,6 +84,30 @@ export default class Splash extends Component {
                     </div>
                 </div>
 
+                <div className="thank-you-wrapper">
+                    <h1>
+                        Thanks for listening. Now join in.
+
+                    </h1>
+                    <p>
+                        Save tracks, follow artists and build playlists. All for free
+                    </p>
+                    <button className="big-sign-up" onClick={() => this.props.openModal('Sign up')}>
+                        Create account
+                    </button>
+
+                    <div className="small-wrapper">
+                        already have an account?
+                        <button className="white-sign" onClick={() => this.props.openModal('Sign in')}>Sign in</button>
+                    </div>
+                </div>
+
+                <div className="footer">
+                    <span><a href='https://github.com/SamuelSacco' target="_blank" rel="noopener noreferrer">GitHub - </a><span></span><a href='https://www.linkedin.com/in/sam-sacco-642a59218/' target="_blank" rel="noopener noreferrer">LinkedIn - </a><span></span><a href='https://angel.co/u/samuel-sacco' target="_blank" rel="noopener noreferrer">AngelList</a></span>
+                </div>
+                <p className="p-footer">
+                    Language: English(US)
+                </p>
             </div>
             
         )
