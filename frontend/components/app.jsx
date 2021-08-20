@@ -16,6 +16,7 @@ import AudioPlayer from './audio_player/audio_player';
 // import EditCommentsForm from './comments_form/edit_comments';
 import EditCommentsContainer from './comments_form/edit_comments_form_container';
 import SplashContainer from './splash/splash_container';
+import Topbar from './topbar/topbar';
 
 const App = () => (
     <div className="app">
@@ -35,7 +36,7 @@ const App = () => (
             <Route exact path="/users/:userId" component={SongFormContainer} />
             <Route exact path="/songs/:songId" component={SongShowContainer} />
             <Route exact path="/wavetest" component={AudioPlayer} />
-
+            <Route exact path="/test" component={Topbar}></Route>
         </Switch>
     </div>
 );

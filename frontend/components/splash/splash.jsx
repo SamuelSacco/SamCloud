@@ -36,7 +36,7 @@ export default class Splash extends Component {
                                         </button>
                                     </a>
                                 :
-                                    <button className="start-upload button" onClick={() => this.props.openModal('Sign in')}>Start uploading today!
+                                    <button className="start-upload button" onClick={() => this.props.openModal('Sign in')}>Start uploading today
                                     </button>
                             }
                         </div>

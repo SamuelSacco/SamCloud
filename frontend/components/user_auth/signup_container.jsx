@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SessionForm from './session_form';
-import { signup, login } from '../../actions/session_actions';
+import { signup, login, removeErrors } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mSTP = ({ errors }) => {
@@ -22,7 +22,9 @@ const mDTP = dispatch => {
             </button>
         ),
         closeModal: () => dispatch(closeModal()),
-        login: (user) => dispatch(login(user)) // for logging in demo user
+        login: (user) => dispatch(login(user)), // for logging in demo user
+        removeErrors: () => dispatch(removeErrors())
+
     };
 };
 

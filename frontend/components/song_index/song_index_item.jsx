@@ -50,7 +50,7 @@ class SongIndexItem extends React.Component{
     
                 <h1><Link to={`/songs/${this.props.song.id}`} className="song-page-link">{this.props.song.title}</Link></h1>
                 {/* <button onClick={start}>Test Play</button> */}
-                {/* <button onClick={() => this.props.deleteSong(this.props.song.id)}>Delete Song</button> */}
+                <button onClick={() => this.props.deleteSong(this.props.song.id)}>Delete Song</button>
             </li>
         )
     }
