@@ -90,7 +90,7 @@ body{
             // font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
             font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: 200;
-            font-size: 41px;
+            font-size: 38px;
             margin-right: 16px;
             // font-weight: 100;
             // width: 100%;
@@ -193,9 +193,13 @@ body{
         &:hover .thumbnail-button{
             opacity: 1;
             cursor: pointer;
+            transition: .4s ease;
+            // opacity: .3;
         }
     }
 }
+
+
 
 .thumbnails{
     height: 180px;
@@ -203,6 +207,12 @@ body{
     padding: 10px 10px 5px 10px;
     
 }
+
+
+// .overlay:hover{
+//   background: rgba(0, 0, 0, 0.3);
+//   z-index: 1px;
+// }
 
 .song-page-link{
     text-decoration: none;
