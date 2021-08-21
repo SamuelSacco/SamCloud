@@ -200,7 +200,16 @@ body{
 .thumbnails{
     height: 180px;
     width: 180px;
-    padding: 10px;
+    padding: 10px 10px 5px 10px;
+    
+}
+
+.song-page-link{
+    text-decoration: none;
+    color: rgb(129, 129, 129);
+    &:hover{
+        color: #333;    
+    }
 }
 
 .songs-header-text{
@@ -693,6 +702,9 @@ body{
         font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         font-weight: 100;
         font-size: 14px;
+            &:hover{
+            color: #333;    
+    }
     }
 }
 .p-footer{

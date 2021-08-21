@@ -46,7 +46,6 @@ class SongIndexItem extends React.Component{
                         <div className="triangle"></div>
                     }
                 </button>
-                <br />
     
                 <h1><Link to={`/songs/${this.props.song.id}`} className="song-page-link">{this.props.song.title}</Link></h1>
                 {/* <button onClick={start}>Test Play</button> */}
