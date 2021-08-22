@@ -15,6 +15,8 @@ class SongIndexItem extends React.Component{
         this.setState({
             playing: true
         })
+        console.log(this.props)
+        this.props.playSong()
     }
 
     pause = () => {

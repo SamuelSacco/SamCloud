@@ -22,7 +22,9 @@ class SongIndex extends React.Component {
                                     <SongIndexItem
                                         key={song.id}
                                         song={song}
-                                        deleteSong={this.props.deleteSong} 
+                                        deleteSong={this.props.deleteSong}
+                                        playSong={this.props.playSong}
+                                        pauseSong={this.props.pauseSong}
                                     />
                                 )
                             // } 

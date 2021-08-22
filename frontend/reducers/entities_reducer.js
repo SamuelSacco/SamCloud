@@ -7,6 +7,7 @@ const entitiesReducer = combineReducers({
     users: usersReducer,
     songs: songsReducer,
     comments: commentsReducer
+    // current song being played 
     })
 
 export default entitiesReducer;

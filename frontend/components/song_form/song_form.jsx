@@ -23,6 +23,7 @@ class SongForm extends React.Component{
         this.setState({
             audioFile: e.currentTarget.files[0]
         })
+        // debugger
     }
 
     handlePhotoFile(e){
