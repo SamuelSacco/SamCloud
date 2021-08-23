@@ -9,7 +9,6 @@ class SongIndexItem extends React.Component{
             playing: false
         }
     }
-
     start = () => {
         this.audio.play()
         this.setState({
@@ -17,6 +16,7 @@ class SongIndexItem extends React.Component{
         })
         console.log(this.props)
         this.props.playSong()
+        console.log(':pointleft')
     }
 
     pause = () => {
