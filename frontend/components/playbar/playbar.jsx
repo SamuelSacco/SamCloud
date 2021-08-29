@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faStepBackward, faRedoAlt, faVolumeMute, faVolumeDown, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faStepBackward, faRedoAlt, faVolumeMute, faVolumeDown, faVolumeUp, faUser } from "@fortawesome/free-solid-svg-icons";
+import LikeButtonContainer from '../like_button/like_button_container';
 
 export default class PlayBar extends Component {
     constructor(props) {
         super(props);
-
+        
         this.state = {
             loop: false,
             muted: false,
@@ -16,21 +18,21 @@ export default class PlayBar extends Component {
             remainder: false,
             hover: false
         }
-
+        
         this.handleVolume = this.handleVolume.bind(this);
     }
-
+    
     handleVolume(e) {
         document.getElementById("audio").volume = e.target.value;
         this.setState({ volume: e.target.value, muted: false });
     }
-
+    
     handleHover(mode) {
         this.setState({ hover: mode });
     }
-
+    
     render() {
-        if (!this.props.playing) return null;
+        if (!this.props.currentSong) return null;
         let volumeBar = (
             <div className="playbar-volumebar-container" onMouseEnter={() => this.handleHover(true)}>
                 <input type="range" className="playbar-volumebar"
@@ -43,7 +45,7 @@ export default class PlayBar extends Component {
         );
         let volumeOn = this.state.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} size="lg" /> : <FontAwesomeIcon icon={faVolumeDown} size="lg" />;
         let volumeButton = (this.state.muted || this.state.volume <= 0) ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
-
+        
         return (
             <div className="playbar">
                 <div className="playbar-container">
@@ -61,8 +63,9 @@ export default class PlayBar extends Component {
                                 muted={this.state.muted}
                                 onLoadedMetadata={this.setDuration}
                                 onPlaying={this.playTrack}
-                                onEnded={this.handleEnded} /> */}
+                            onEnded={this.handleEnded} /> */}
                             <input type="range" className="playbar-seeker"
+                                // style="background-color:white;"
                                 // onChange={this.handleSeek}
                                 min="0"
                                 // max={this.state.duration}
@@ -75,8 +78,14 @@ export default class PlayBar extends Component {
                         {this.state.hover && volumeBar}
                         <button className="button-playbar button-volume" onClick={this.toggleMute}>{volumeButton}</button>
                     </div>
-                    <div className="playbar-current-song">
-                        
+                    <div className="playbar-song-item">
+                        <Link className="playbar-song-album-art" to={`/songs/${this.props.currentSong.id}`}><img src={this.props.currentSong.photo_url} /></Link>
+                        <div className="playbar-song-item-container">
+                            <h1><Link to={`/songs/${this.props.currentSong.id}`}>{this.props.currentSong.title}</Link></h1>
+                        </div>
+                        <div>
+                            <LikeButtonContainer />
+                        </div>
                     </div>
                 </div>
             </div>

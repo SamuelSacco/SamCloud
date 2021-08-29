@@ -15,8 +15,8 @@ class SongIndexItem extends React.Component{
             playing: true
         })
         console.log(this.props)
+        this.props.receiveCurrentSong(this.props.song)
         this.props.playSong()
-        console.log(':pointleft')
     }
 
     pause = () => {

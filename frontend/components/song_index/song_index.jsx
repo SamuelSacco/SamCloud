@@ -25,6 +25,7 @@ class SongIndex extends React.Component {
                                         deleteSong={this.props.deleteSong}
                                         playSong={this.props.playSong}
                                         pauseSong={this.props.pauseSong}
+                                        receiveCurrentSong={this.props.receiveCurrentSong}
                                     />
                                 )
                             // } 

@@ -4,7 +4,7 @@ import PlayBar from './playbar';
 
 const mSTP = state => ({
     currentUser: state.entities.users[state.session.id],
-    currentTrack: state.ui.playbar.track,
+    currentSong: state.ui.playbar.currentSong,
     playing: state.ui.playbar.playing,
 });
 

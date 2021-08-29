@@ -18,12 +18,14 @@ import EditCommentsContainer from './comments_form/edit_comments_form_container'
 import SplashContainer from './splash/splash_container';
 import Topbar from './topbar/topbar';
 import PlaybarContainer from './playbar/playbar_container';
+
 const App = () => (
     <div className="app">
         {/* <Test/> */}
         {/* <SongFormContainer/> */}
         {/* <NavBarContainer /> */}
         {/* <GreetingContainer/> */}
+
         <PlaybarContainer />
         <ModalContainer />
         
