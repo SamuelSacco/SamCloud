@@ -18,6 +18,7 @@ import EditCommentsContainer from './comments_form/edit_comments_form_container'
 import SplashContainer from './splash/splash_container';
 import Topbar from './topbar/topbar';
 import PlaybarContainer from './playbar/playbar_container';
+import PlayButtonContainer from './play_button/play_button_container';
 
 const App = () => (
     <div className="app">
@@ -26,6 +27,7 @@ const App = () => (
         {/* <NavBarContainer /> */}
         {/* <GreetingContainer/> */}
 
+        {/* <PlayButtonContainer /> */}
         <PlaybarContainer />
         <ModalContainer />
         

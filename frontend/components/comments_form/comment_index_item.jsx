@@ -34,7 +34,7 @@ class CommentIndexItem extends React.Component{
     }
 
     render(){
-        console.log(this.state)
+        // console.log(this.state)
         let deleteCommentsDiv = null;
     
         if (this.props.currentUser){

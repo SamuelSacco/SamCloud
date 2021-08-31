@@ -7,7 +7,8 @@ const mSTP = (state, ownProps) => {
     return ({
         songs: Object.values(state.entities.songs),
         currentUserId: state.session.id,
-        test: ownProps
+        currentSong: state.ui.playbar.currentSong
+        // test: ownProps
     })
 }
 
@@ -15,9 +16,9 @@ const mDTP = (dispatch) => {
     return ({
         requestSongs: () => dispatch(requestSongs()),
         deleteSong: (songId) => dispatch(deleteSong(songId)),
-        receiveCurrentSong: (song) => dispatch(receiveCurrentSong(song)),
-        playSong: () => dispatch(playSong()),
-        pauseSong: () => dispatch(pauseSong())
+        // receiveCurrentSong: (song) => dispatch(receiveCurrentSong(song)),
+        playSong: (song) => dispatch(playSong(song)),
+        pauseSong: (song) => dispatch(pauseSong(song))
     })
 }
 

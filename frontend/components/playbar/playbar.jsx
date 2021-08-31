@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faStepBackward, faRedoAlt, faVolumeMute, faVolumeDown, faVolumeUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import LikeButtonContainer from '../like_button/like_button_container';
+import PlayButtonContainer from '../play_button/play_button_container';
 
 export default class PlayBar extends Component {
     constructor(props) {
@@ -51,9 +52,9 @@ export default class PlayBar extends Component {
             <div className="playbar">
                 <div className="playbar-container">
                     <div className="playbar-controls">
-                        <button className="button-playbar" ><FontAwesomeIcon icon={faStepBackward} /></button>
-                        <button className="button-playbar" ><FontAwesomeIcon icon={faPlay} /></button>
-                        <button className="button-playbar" ><FontAwesomeIcon icon={faRedoAlt} /></button>
+                        <button className="button-playbar" > <FontAwesomeIcon icon={faStepBackward} /> </button>
+                        <button className="button-playbar" > <PlayButtonContainer /> </button>
+                        <button className="button-playbar" > <FontAwesomeIcon icon={faRedoAlt} /> </button>
                     </div>
                     <div className="playbar-seek">
                         <span className="accent">0:00</span>

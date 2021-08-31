@@ -21,8 +21,8 @@ export default function Waveform(props) {
     const waveformRef = useRef(null);
     const wavesurfer = useRef(null);
     const [playing, setPlay] = useState(false);
-    console.log(props.isPlaying)
-    console.log(playing)
+    // console.log(props.isPlaying)
+    // console.log(playing)
     // this.state = {
         //  playing: false
         // }

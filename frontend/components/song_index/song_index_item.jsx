@@ -4,28 +4,33 @@ import { Link } from 'react-router-dom';
 class SongIndexItem extends React.Component{
     constructor(props){
         super(props)
-        this.audio = new Audio(this.props.song.audio_url)
+        // this.audio = new Audio(this.props.song.audio_url)
         this.state = {
             playing: false
         }
     }
+
+    componentDidUpdate(previousProps, previousState){
+        if (this.state.playing && previousState.playing && this.props.currentSong.id !== this.props.song.id ){
+            this.setState({
+                playing: false
+            })
+            // console.log("PREVIOUS_PROPS:",  previousProps, "PREVIOUS_STATE:", previousState, "PROPS:", this.props, "STATE:", this.state)
+        }
+    }
     
     start = () => {
-        this.audio.play()
         this.setState({
             playing: true
         })
-        console.log(this.props)
-        this.props.receiveCurrentSong(this.props.song)
-        this.props.playSong()
+        this.props.playSong(this.props.song)
     }
     
     pause = () => {
-        this.audio.pause()
         this.setState({
             playing: false
         })
-        this.props.pauseSong()
+        this.props.pauseSong(this.props.song)
     }
     
     togglePlay = () => {
