@@ -21,11 +21,15 @@ const playbarReducer = (state = _nullSong, action) => {
         //     });
         case PLAY_SONG:
             if (state.songAudioObject !== null){
-                console.log("TWO SONGS PLAYING")
+                // console.log("TWO SONGS PLAYING")
                 state.songAudioObject.pause()
             }
+            let songAudioObject = state.songAudioObject
 
-            let songAudioObject = new Audio(action.song.audio_url)
+            if (state.currentSong === null || action.song.id !== state.currentSong.id){
+                songAudioObject = new Audio(action.song.audio_url)
+            }
+
             songAudioObject.play()
             return Object.assign(newState, {
                 playing: true,
