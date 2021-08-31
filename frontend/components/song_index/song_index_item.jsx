@@ -9,6 +9,7 @@ class SongIndexItem extends React.Component{
             playing: false
         }
     }
+    
     start = () => {
         this.audio.play()
         this.setState({
@@ -18,14 +19,15 @@ class SongIndexItem extends React.Component{
         this.props.receiveCurrentSong(this.props.song)
         this.props.playSong()
     }
-
+    
     pause = () => {
         this.audio.pause()
         this.setState({
             playing: false
         })
+        this.props.pauseSong()
     }
-
+    
     togglePlay = () => {
         if (this.state.playing){
             return this.pause()
@@ -33,23 +35,24 @@ class SongIndexItem extends React.Component{
             return this.start()
         }
     }
-
+    
     render(){
         return (
             <li>
+                {/* {console.log(document.getElementsByTagName("li"))} */}
                 <img className="thumbnails"  src={this.props.song.photo_url || "no-image.png"} alt="img not found" />
                 <button onClick={this.togglePlay} className="thumbnail-button">
                     {
                         this.state.playing ? 
-                            <div className="pause-image">
+                        <div className="pause-image">
                                 Pause
                             </div>
                         :
                         <div className="triangle"></div>
                     }
                 </button>
-    
                 <h1><Link to={`/songs/${this.props.song.id}`} className="song-page-link">{this.props.song.title}</Link></h1>
+                <h2 className="song-page-link artist">{this.props.song.artist}</h2>
                 {/* <button onClick={start}>Test Play</button> */}
                 {/* <button onClick={() => this.props.deleteSong(this.props.song.id)}>Delete Song</button> */}
             </li>

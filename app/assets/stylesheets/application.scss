@@ -51,7 +51,6 @@ body{
     margin-right: auto;
     height: 450px;
     background-repeat: no-repeat;
-
     
 
     .header{
@@ -62,10 +61,30 @@ body{
         display: flex;
         justify-content: space-between;
 
+        .logo-text-wrapper{
+
+            display: flex;
+            .header-logo{
+                padding-left: 30px;
+                width: 50px;
+                object-fit: contain;
+            }
+    
+            .header-text{
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color: white;
+                font-size: 14px;
+                padding-top: 10px;
+                padding-left: 2px;
+                font-weight: bold;
+            }
+
+        }
         .header-button{
             // border: solid 1px red;
             margin-left: auto;
         }
+
     }
 
     .header-center{
@@ -214,19 +233,50 @@ body{
 //   z-index: 1px;
 // }
 
+.songs h1{
+    
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 11px;
+    font-size: 14px;
+    // font-weight: lighter;
+}
+
 .song-page-link{
     text-decoration: none;
-    color: rgb(129, 129, 129);
+    color: rgb(56, 56, 56);
     &:hover{
         color: #333;    
     }
-    margin-bottom: 20px;
+    padding-bottom: 4px;
 }
+
+.artist{
+    text-align: left;
+    font-size: 12px;
+    margin-left: 11px;
+    color: rgb(129, 129, 129);
+    cursor: pointer;
+    padding-bottom: 20px;
+
+}
+
+// .song-page-link-artist{
+//     text-decoration: none;
+//     color: rgb(129, 129, 129);
+//     &:hover{
+//         color: #333;    
+//     }
+//     margin-bottom: 20px;
+//     font-size: 12px;
+// }
 
 .songs-header-text{
     padding: 15px;
     padding-bottom: 8px;
     font-size: 24px;
+    // font-weight: 400;
+    padding-bottom: 20px;
 }
 
 .songs-index-container{
@@ -315,13 +365,7 @@ body{
 }
 
 
-.songs h1{
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 11px;
-    font-size: 14px;
-    // font-weight: lighter;
-}
+
 
 .song-show-button {
   height: 48px;

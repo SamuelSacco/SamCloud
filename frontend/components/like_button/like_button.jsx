@@ -1,24 +1,36 @@
 import React, { Component } from 'react'
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default class LikeButton extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            liked: false
+            liked: false,
         }
     }
 
     componentDidMount(){
-        this.props.fetchLike({ song_id: this.props.currentSong.id, liker_id: this.props.currentUser.id }).then(like => { 
-            // JO SAYS PUT THE IF STATEMENT INSIDE THE .THEN YOU IDIOT
-            if (Object.keys(like).length > 0){
+        if (this.props.currentUser){
+            this.props.fetchLike({ song_id: this.props.currentSong.id, liker_id: this.props.currentUser.id }).then(like => { 
+                // JO SAYS PUT THE IF STATEMENT INSIDE THE .THEN YOU IDIOT
+                if (Object.keys(like).length){
+                    this.setState({
+                        liked: true
+                    })
+                }
+            })
+        }
+    }
+
+    componentDidUpdate(previousProps){
+        if (previousProps.currentSong.id !== this.props.currentSong.id){
+            this.props.fetchLike({ song_id: this.props.currentSong.id, liker_id: this.props.currentUser.id }).then(like => {                
                 this.setState({
-                    liked: true
+                    liked: Boolean(Object.keys(like).length)
                 })
-            }
-        })
+            })
+        }
     }
 
     like = () => {
@@ -36,10 +48,12 @@ export default class LikeButton extends Component {
     }
 
     toggleLike = () => {
-        // console.log(this.state.like)
+        if (!this.props.currentUser){
+            return this.props.openModal("Sign up")
+        }
+
         if (this.state.liked) {
             return this.unlike()
-            // console.log(this.state)
         } else {
             return this.like()
         }

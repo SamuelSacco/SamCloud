@@ -45,7 +45,7 @@ class SessionForm extends React.Component {
 
     handleDemoUserSubmit(e) {
         e.preventDefault();
-        const demoUser = { username: "Sam", password: "123456" };
+        const demoUser = { username: "Ed Sheeran", password: "123456" };
         this.props.closeModal()
 
         if (this.props.formType === "Sign up") {

@@ -43,6 +43,7 @@ export default class PlayBar extends Component {
                     step="0.01" />
             </div>
         );
+
         let volumeOn = this.state.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} size="lg" /> : <FontAwesomeIcon icon={faVolumeDown} size="lg" />;
         let volumeButton = (this.state.muted || this.state.volume <= 0) ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
         
@@ -69,7 +70,7 @@ export default class PlayBar extends Component {
                                 // onChange={this.handleSeek}
                                 min="0"
                                 // max={this.state.duration}
-                                // value={this.state.elapsed}
+                                value="0"
                                 step="0.01" />
                         </div>
                         <span>3:00</span>
@@ -81,7 +82,8 @@ export default class PlayBar extends Component {
                     <div className="playbar-song-item">
                         <Link className="playbar-song-album-art" to={`/songs/${this.props.currentSong.id}`}><img src={this.props.currentSong.photo_url} /></Link>
                         <div className="playbar-song-item-container">
-                            <h1><Link to={`/songs/${this.props.currentSong.id}`}>{this.props.currentSong.title}</Link></h1>
+                            <h1 className="song-title"><Link to={`/songs/${this.props.currentSong.id}`}>{this.props.currentSong.title}</Link></h1>
+                            <h1 className="song-artist"><Link to={`/songs/${this.props.currentSong.id}`}>{this.props.currentSong.artist}</Link></h1>
                         </div>
                         <div>
                             <LikeButtonContainer />
@@ -89,6 +91,11 @@ export default class PlayBar extends Component {
                     </div>
                 </div>
             </div>
+            // <div className="playbar">
+            //     <audio src={this.props.currentSong.audio_url} controls>
+
+            //     </audio>
+            // </div>
         )
     }
 }
