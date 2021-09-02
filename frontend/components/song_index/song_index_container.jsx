@@ -7,7 +7,8 @@ const mSTP = (state, ownProps) => {
     return ({
         songs: Object.values(state.entities.songs),
         currentUserId: state.session.id,
-        currentSong: state.ui.playbar.currentSong
+        currentSong: state.ui.playbar.currentSong,
+        playing: state.ui.playbar.playing
         // test: ownProps
     })
 }

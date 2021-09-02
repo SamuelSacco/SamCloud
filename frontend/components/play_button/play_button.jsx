@@ -10,14 +10,11 @@ export default class PlayButton extends Component {
     }
 
     start = () => {
-        this.audio.play()
-        this.props.receiveCurrentSong(this.props.currentSong)
-        this.props.playSong()
+        this.props.playSong(this.props.currentSong)
     }
 
     pause = () => {
-        this.audio.pause()
-        this.props.pauseSong()
+        this.props.pauseSong(this.props.currentSong)
     }
 
     togglePlay = () => {

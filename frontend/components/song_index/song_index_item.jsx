@@ -11,7 +11,13 @@ class SongIndexItem extends React.Component{
     }
 
     componentDidUpdate(previousProps, previousState){
-        if (this.state.playing && previousState.playing && this.props.currentSong.id !== this.props.song.id ){
+        if (!this.props.playing && this.state.playing){
+            // console.log("PREVIOUS_PROPS:",  previousProps, "PREVIOUS_STATE:", previousState, "PROPS:", this.props, "STATE:", this.state)
+            // this.setState({
+            //     playing: false
+            // })
+
+        } else if (this.state.playing && previousState.playing && this.props.currentSong.id !== this.props.song.id ){
             this.setState({
                 playing: false
             })

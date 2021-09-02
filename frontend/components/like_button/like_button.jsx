@@ -24,7 +24,11 @@ export default class LikeButton extends Component {
     }
 
     componentDidUpdate(previousProps){
-        if (previousProps.currentSong.id !== this.props.currentSong.id){
+        if (previousProps.currentUser && !this.props.currentUser){
+            this.setState({
+                liked: false
+            })  
+        } else if (previousProps.currentSong.id !== this.props.currentSong.id || previousProps.currentUser !== this.props.currentUser){
             this.props.fetchLike({ song_id: this.props.currentSong.id, liker_id: this.props.currentUser.id }).then(like => {                
                 this.setState({
                     liked: Boolean(Object.keys(like).length)

@@ -1,7 +1,8 @@
 import {
-    RECEIVE_CURRENT_SONG,
     PLAY_SONG,
-    PAUSE_SONG
+    PAUSE_SONG,
+    LOOP_SONG,
+    RESTART_SONG,
 } from "../actions/playbar_actions";
 
 const _nullSong = {
@@ -25,11 +26,12 @@ const playbarReducer = (state = _nullSong, action) => {
                 state.songAudioObject.pause()
             }
             let songAudioObject = state.songAudioObject
-
+            
             if (state.currentSong === null || action.song.id !== state.currentSong.id){
                 songAudioObject = new Audio(action.song.audio_url)
             }
-
+            
+            // songAudioObject.volume = .1
             songAudioObject.play()
             return Object.assign(newState, {
                 playing: true,
@@ -47,6 +49,16 @@ const playbarReducer = (state = _nullSong, action) => {
                 currentSong: state.currentSong,
                 songAudioObject: state.songAudioObject
             });
+
+        case LOOP_SONG:
+            if (!state.songAudioObject || action.setLoop === state.songAudioObject.loop){
+                return state
+            }
+            state.songAudioObject.loop = action.setLoop
+            return newState
+        case RESTART_SONG:
+            state.songAudioObject.currentTime = 0;
+            return state
         default:
             return state;
     }

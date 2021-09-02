@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faStepBackward, faRedoAlt, faVolumeMute, faVolumeDown, faVolumeUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import LikeButtonContainer from '../like_button/like_button_container';
 import PlayButtonContainer from '../play_button/play_button_container';
+import RepeatSong from '../repeat_song/repeat_song';
+import RestartButton from '../restart_button/restart_button';
 
 export default class PlayBar extends Component {
     constructor(props) {
@@ -14,7 +16,7 @@ export default class PlayBar extends Component {
             muted: false,
             volume: 0.5,
             mutedVolume: 0.5,
-            elapsed: 0,
+            elapsed: this.props.songAudioObject ? this.props.songAudioObject.currentTime : 0,
             duration: 0,
             remainder: false,
             hover: false
@@ -23,19 +25,56 @@ export default class PlayBar extends Component {
         this.handleVolume = this.handleVolume.bind(this);
     }
     
-    handleVolume(e) {
-        document.getElementById("audio").volume = e.target.value;
-        this.setState({ volume: e.target.value, muted: false });
+    componentDidMount() {
+        this.interval = setInterval(() => this.setState({ time: Date.now() }), 1000);
     }
     
-    handleHover(mode) {
-        this.setState({ hover: mode });
+    
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
     
-    render() {
-        if (!this.props.currentSong) return null;
-        let volumeBar = (
-            <div className="playbar-volumebar-container" onMouseEnter={() => this.handleHover(true)}>
+    timeConverter = (time) => {
+        if (!time){
+            return ''
+        }
+        let min = Math.floor(time % 3600 / 60);
+        let sec = Math.floor(time % 3600 % 60);
+        
+        let formattedSecs = sec <= 9 ? `0${sec}` : sec;
+        return `${min}:${formattedSecs}`;
+    }
+    
+    // handleSeek(e) {
+        //     this.props.songAudioObject.currentTime = e.target.value;
+        //     this.setState({ elapsed: e.target.value });
+        // }
+        
+        componentDidUpdate(previousProps){
+            if (this.props.songAudioObject !== null){
+                
+                // if(previousProps.songAudioObject.currentTime !== this.props.songAudioObject.currentTime){
+                    //     this.setState({
+                        //         elapsed: this.props.songAudioObject.currentTime
+                        //     })
+                        // }
+                    }
+                }
+                
+                handleVolume(e) {
+                    document.getElementById("audio").volume = e.target.value;
+                    this.setState({ volume: e.target.value, muted: false });
+                }
+                
+                handleHover(mode) {
+                    this.setState({ hover: mode });
+                }
+                
+                render() {
+                    // console.log(this.props)
+                    if (!this.props.songAudioObject) return null;
+                    let volumeBar = (
+                        <div className="playbar-volumebar-container" onMouseEnter={() => this.handleHover(true)}>
                 <input type="range" className="playbar-volumebar"
                     onChange={this.handleVolume}
                     min="0"
@@ -44,7 +83,7 @@ export default class PlayBar extends Component {
                     step="0.01" />
             </div>
         );
-
+        
         let volumeOn = this.state.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} size="lg" /> : <FontAwesomeIcon icon={faVolumeDown} size="lg" />;
         let volumeButton = (this.state.muted || this.state.volume <= 0) ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
         
@@ -52,12 +91,14 @@ export default class PlayBar extends Component {
             <div className="playbar">
                 <div className="playbar-container">
                     <div className="playbar-controls">
-                        <button className="button-playbar" > <FontAwesomeIcon icon={faStepBackward} /> </button>
+                        {/* <button className="button-playbar" > <FontAwesomeIcon icon={faStepBackward} /> </button> */}
+                        <RestartButton restartSong={this.props.restartSong}/>
+                        
                         <button className="button-playbar" > <PlayButtonContainer /> </button>
-                        <button className="button-playbar" > <FontAwesomeIcon icon={faRedoAlt} /> </button>
+                        <RepeatSong loopSong={this.props.loopSong}/>
                     </div>
                     <div className="playbar-seek">
-                        <span className="accent">0:00</span>
+                        <span className="accent">{this.timeConverter(this.props.songAudioObject.currentTime)}</span>
                         <div className="playbar-seeker-container">
                             {/* <audio id="audio" autoPlay
                                 src={this.props.currentTrack.audioFile}
@@ -70,11 +111,11 @@ export default class PlayBar extends Component {
                                 // style="background-color:white;"
                                 // onChange={this.handleSeek}
                                 min="0"
-                                // max={this.state.duration}
-                                value="0"
+                                max={this.props.songAudioObject.duration}
+                                value={this.props.songAudioObject.currentTime}
                                 step="0.01" />
                         </div>
-                        <span>3:00</span>
+                        <span>{this.timeConverter(this.props.songAudioObject.duration)}</span>
                     </div>
                     <div className="playbar-volume" onMouseEnter={() => this.handleHover(true)} onMouseLeave={() => this.handleHover(false)}>
                         {this.state.hover && volumeBar}
