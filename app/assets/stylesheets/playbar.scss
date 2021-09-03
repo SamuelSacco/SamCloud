@@ -202,6 +202,16 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -6.78px;
 }
 
+input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #ff5500;
+    margin-top: -6.78px;
+}
+
 input[type=range]:focus {
     outline: none;
 }
