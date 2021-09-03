@@ -66,7 +66,7 @@ export default class PlayBar extends Component {
             
     handleVolume(e) {
         this.props.setVolume(e.target.value)
-        console.log(e.target.value)
+        // console.log(e.target.value)
     }
     
     handleHover(mode) {
