@@ -64,7 +64,7 @@ body{
         justify-content: space-between;
         height: 100px;
         background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-        margin-top: -65px;
+        margin-top: -70px;
         
 
         .logo-text-wrapper{
@@ -84,6 +84,7 @@ body{
                 font-weight: bold;
                 letter-spacing: 1px;
                 margin-left: -5px;
+                // margin-top: -5px;
 
             }
 
@@ -93,6 +94,10 @@ body{
             margin-left: auto;
         }
 
+    }
+
+    .nav-bar-wrap{
+        margin-top: 65px;
     }
 
     .header-center{

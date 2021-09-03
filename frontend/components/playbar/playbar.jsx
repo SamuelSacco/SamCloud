@@ -31,7 +31,6 @@ export default class PlayBar extends Component {
         this.interval = setInterval(() => this.setState({ time: Date.now() }), 10);
     }
     
-    
     componentWillUnmount() {
         clearInterval(this.interval);
     }
