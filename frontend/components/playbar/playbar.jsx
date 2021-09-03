@@ -28,12 +28,12 @@ export default class PlayBar extends Component {
     }
     
     componentDidMount() {
-        // this.interval = setInterval(() => this.setState({ time: Date.now() }), 10);
+        this.interval = setInterval(() => this.setState({ time: Date.now() }), 10);
     }
     
     
     componentWillUnmount() {
-        // clearInterval(this.interval);
+        clearInterval(this.interval);
     }
     
     timeConverter = (time) => {
