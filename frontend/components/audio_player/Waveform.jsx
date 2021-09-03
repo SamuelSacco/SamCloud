@@ -37,7 +37,6 @@ export default function Waveform(props) {
             wavesurfer.current.load(url);
             wavesurfer.current.on("ready", function () {
                 // setPlay(true) = this.setState({playing: true})
-                
                 // make sure object stillavailable when file loaded
                 // checks if file is still available
                 if (wavesurfer.current) {
@@ -61,8 +60,8 @@ export default function Waveform(props) {
         }, [props.isPlaying]);
 
     return (
-
         <div className="widest">
+            {console.log()}
             <div id="waveform" ref={waveformRef} />
             <div className="controls">
                 {/* <button onClick={handlePlayPause}>{!playing ? "test play" : "test pause"}

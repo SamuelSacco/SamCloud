@@ -27,7 +27,7 @@ export default class PlayButton extends Component {
 
     render() {
         return (
-            <button onClick={this.togglePlay} className="play-button">
+            <div onClick={this.togglePlay} className="play-button">
                 {/* {console.log(this.props)} */}
                 {
                     this.props.playing ?
@@ -35,7 +35,7 @@ export default class PlayButton extends Component {
                     :
                         <FontAwesomeIcon icon={faPlay} />
                 }
-            </button>
+            </div>
         )
     }
 }

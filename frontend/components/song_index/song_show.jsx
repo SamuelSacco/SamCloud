@@ -18,7 +18,6 @@ class SongShow extends React.Component {
         this.props.requestSong(this.props.songId)
         this.props.requestComments()
     }
-    
             
     toggle = () => {
         this.setState({
@@ -47,15 +46,41 @@ class SongShow extends React.Component {
                                             <div className="triangle"></div>
                                     }
                             </button>
-                            <div className="show-text-container">
-                                <h1 className="show-text">{this.props.song.title}</h1>
+                            {/* <div className="column-wrap">
+                                <div className="show-text-container-1">
+                                    <h1 className="show-text">{this.props.song.artist}</h1>
+                                </div>
+                                <div className="show-text-container">
+                                    <h1 className="show-text">{this.props.song.artist} - {this.props.song.title}</h1>
+
+                                </div>
+
+                            </div> */}
+                            <div className="column-wrap">
+                                <div>
+                                    <h2>
+                                        {this.props.song.artist}
+                                    </h2>
+
+                                </div>
+                                <h1>
+                                    {this.props.song.artist} - {this.props.song.title}
+
+                                </h1>
                             </div>
                         </div>
                             <AudioPlayer 
                             song={this.props.song}
                             isPlaying={this.state.isPlaying}
                             />
-                            <img className="song-show-image" src={this.props.song.photo_url || "no-image.png"} alt="" />
+                            <div className="display-next">
+                                <h1>
+                                    {this.props.song.created} ago
+                                </h1>
+                                <img className="song-show-image" src={this.props.song.photo_url || "no-image.png"} alt="" />
+
+                            </div>
+
                     </div>
 
                     <div className="page-content-container">

@@ -3,6 +3,8 @@ import {
     PAUSE_SONG,
     LOOP_SONG,
     RESTART_SONG,
+    SET_TIME,
+    SET_VOLUME
 } from "../actions/playbar_actions";
 
 const _nullSong = {
@@ -40,7 +42,7 @@ const playbarReducer = (state = _nullSong, action) => {
             });
 
         case PAUSE_SONG:
-            console.log(action.song, state.currentSong)
+            // console.log(action.song, state.currentSong)
             if (action.song !== state.currentSong) return state
 
             state.songAudioObject.pause()
@@ -58,6 +60,12 @@ const playbarReducer = (state = _nullSong, action) => {
             return newState
         case RESTART_SONG:
             state.songAudioObject.currentTime = 0;
+            return state
+        case SET_TIME:
+            state.songAudioObject.currentTime = action.time;
+            return state
+        case SET_VOLUME:
+            state.songAudioObject.volume = action.volume;
             return state
         default:
             return state;

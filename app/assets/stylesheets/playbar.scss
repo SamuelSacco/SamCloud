@@ -9,6 +9,8 @@
     background-color: #f2f2f2;
     border-top: 1px solid #cecece;
     color: #333;
+    min-width: 1200px;
+
 }
 
 .playbar-container {
@@ -17,6 +19,7 @@
     position: relative;
     width: 1240px;
     button{
+        width: 30px;
         border: none;
         cursor: pointer;
     }
@@ -67,11 +70,11 @@
 }
 
 .playbar-volumebar-container {
-  width: 32px;
+  width: 39px;
   height: 120px;
   position: absolute;
   bottom: 42px;
-  right: 1px;
+  left: 5px;
   z-index: 10;
   box-sizing: border-box;
   background-color: #f2f2f2;
@@ -107,9 +110,12 @@
 
   input {
     width: 100px;
-    height: 32px;
+    height: 32.5px;
     transform-origin: 50px 50px;
     transform: rotate(-90deg);
+    background-color: #f2f2f2;
+    cursor: pointer;
+    margin-top: 9px;
   }
 }
 
@@ -193,7 +199,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 16px;
     border-radius: 50%;
     background: #ff5500;
-    margin-top: -6px;
+    margin-top: -6.78px;
 }
 
 input[type=range]:focus {
@@ -209,7 +215,18 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .orange-loop{
+  transform: scaleX(-1);
   color: #ff5500
+  
+}
+
+.time{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+.current-time{
+  color: #ff5500;
 }
 
 // .unliked{

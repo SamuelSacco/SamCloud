@@ -23,15 +23,17 @@ export default class PlayBar extends Component {
         }
         
         this.handleVolume = this.handleVolume.bind(this);
+        this.handleSeek = this.handleSeek.bind(this);
+
     }
     
     componentDidMount() {
-        this.interval = setInterval(() => this.setState({ time: Date.now() }), 1000);
+        // this.interval = setInterval(() => this.setState({ time: Date.now() }), 10);
     }
     
     
     componentWillUnmount() {
-        clearInterval(this.interval);
+        // clearInterval(this.interval);
     }
     
     timeConverter = (time) => {
@@ -45,47 +47,49 @@ export default class PlayBar extends Component {
         return `${min}:${formattedSecs}`;
     }
     
-    // handleSeek(e) {
-        //     this.props.songAudioObject.currentTime = e.target.value;
-        //     this.setState({ elapsed: e.target.value });
-        // }
+    handleSeek(e) {
+        // this.props.songAudioObject.currentTime = e.target.value;
+        // this.setState({ elapsed: e.target.value });
+        this.props.setTime(e.target.value)
+        // console.log(e.target.value)
+    }
         
-        componentDidUpdate(previousProps){
-            if (this.props.songAudioObject !== null){
-                
-                // if(previousProps.songAudioObject.currentTime !== this.props.songAudioObject.currentTime){
-                    //     this.setState({
-                        //         elapsed: this.props.songAudioObject.currentTime
-                        //     })
-                        // }
-                    }
-                }
-                
-                handleVolume(e) {
-                    document.getElementById("audio").volume = e.target.value;
-                    this.setState({ volume: e.target.value, muted: false });
-                }
-                
-                handleHover(mode) {
-                    this.setState({ hover: mode });
-                }
-                
-                render() {
-                    // console.log(this.props)
-                    if (!this.props.songAudioObject) return null;
-                    let volumeBar = (
-                        <div className="playbar-volumebar-container" onMouseEnter={() => this.handleHover(true)}>
+    componentDidUpdate(previousProps){
+        // if (this.props.currentSong){
+        //     if ((!previousProps.currentSong) || (previousProps.currentSong.id !== this.props.currentSong.id)){
+        //             this.props.updateSong({
+        //                 id: this.props.currentSong.id,
+        //                 plays: this.props.currentSong.plays + 1
+        //             })
+        //     }
+        // }
+    }
+            
+    handleVolume(e) {
+        this.props.setVolume(e.target.value)
+        console.log(e.target.value)
+    }
+    
+    handleHover(mode) {
+        this.setState({ hover: mode });
+    }
+    
+    render() {
+
+        if (!this.props.songAudioObject) return null;
+        let volumeBar = (
+            <div className="playbar-volumebar-container" onMouseEnter={() => this.handleHover(true)}>
                 <input type="range" className="playbar-volumebar"
                     onChange={this.handleVolume}
                     min="0"
                     max="1"
-                    value={this.state.volume}
-                    step="0.01" />
-            </div>
-        );
+                    value={this.props.songAudioObject.volume}
+                    step="0.01" 
+                />
+            </div>);
         
-        let volumeOn = this.state.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} size="lg" /> : <FontAwesomeIcon icon={faVolumeDown} size="lg" />;
-        let volumeButton = (this.state.muted || this.state.volume <= 0) ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
+        let volumeOn = this.props.songAudioObject.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} size="lg" /> : <FontAwesomeIcon icon={faVolumeDown} size="lg" />;
+        let volumeButton = (this.props.songAudioObject.volume <= 0) ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
         
         return (
             <div className="playbar">
@@ -98,7 +102,7 @@ export default class PlayBar extends Component {
                         <RepeatSong loopSong={this.props.loopSong}/>
                     </div>
                     <div className="playbar-seek">
-                        <span className="accent">{this.timeConverter(this.props.songAudioObject.currentTime)}</span>
+                        <span className="time current-time">{this.timeConverter(this.props.songAudioObject.currentTime)}</span>
                         <div className="playbar-seeker-container">
                             {/* <audio id="audio" autoPlay
                                 src={this.props.currentTrack.audioFile}
@@ -109,13 +113,13 @@ export default class PlayBar extends Component {
                             onEnded={this.handleEnded} /> */}
                             <input type="range" className="playbar-seeker"
                                 // style="background-color:white;"
-                                // onChange={this.handleSeek}
+                                onChange={this.handleSeek}
                                 min="0"
-                                max={this.props.songAudioObject.duration}
+                                max={this.props.songAudioObject.duration ? this.props.songAudioObject.duration : ''}
                                 value={this.props.songAudioObject.currentTime}
                                 step="0.01" />
                         </div>
-                        <span>{this.timeConverter(this.props.songAudioObject.duration)}</span>
+                        <span className="time song-length">{this.timeConverter(this.props.songAudioObject.duration)}</span>
                     </div>
                     <div className="playbar-volume" onMouseEnter={() => this.handleHover(true)} onMouseLeave={() => this.handleHover(false)}>
                         {this.state.hover && volumeBar}

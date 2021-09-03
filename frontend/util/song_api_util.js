@@ -22,6 +22,14 @@ export const createSong = (formData) => (
     })
 );
 
+export const updateSong = song => (
+    $.ajax({
+        method: "PATCH",
+        url: `/api/songs/${song.id}`,
+        data: { song }
+    })
+);
+
 export const deleteSong = (songId) => {
     return $.ajax({
         method: "DELETE",

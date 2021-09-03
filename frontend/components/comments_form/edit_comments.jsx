@@ -31,10 +31,10 @@ export default class EditCommentsForm extends Component {
     
     render() {
         if (!this.props.comment){
-            console.log("no comment")
+            // console.log("no comment")
             return null
         }
-        console.log("comment found")
+        // console.log("comment found")
         if (this.props.currentUser) {
             return (
                 <div className="text-box-container">

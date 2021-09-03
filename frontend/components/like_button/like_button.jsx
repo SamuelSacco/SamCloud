@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faf } from "@fortawesome/free-solid-svg-icons";
 
 export default class LikeButton extends Component {
     constructor(props) {
@@ -24,16 +24,18 @@ export default class LikeButton extends Component {
     }
 
     componentDidUpdate(previousProps){
-        if (previousProps.currentUser && !this.props.currentUser){
-            this.setState({
-                liked: false
-            })  
-        } else if (previousProps.currentSong.id !== this.props.currentSong.id || previousProps.currentUser !== this.props.currentUser){
-            this.props.fetchLike({ song_id: this.props.currentSong.id, liker_id: this.props.currentUser.id }).then(like => {                
+        if (this.props.currentUser){
+            if (previousProps.currentUser && !this.props.currentUser){
                 this.setState({
-                    liked: Boolean(Object.keys(like).length)
+                    liked: false
+                })  
+            } else if (previousProps.currentSong.id !== this.props.currentSong.id || previousProps.currentUser !== this.props.currentUser){
+                this.props.fetchLike({ song_id: this.props.currentSong.id, liker_id: this.props.currentUser.id }).then(like => {                
+                    this.setState({
+                        liked: Boolean(Object.keys(like).length)
+                    })
                 })
-            })
+            }
         }
     }
 

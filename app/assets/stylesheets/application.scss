@@ -36,6 +36,8 @@ body{
 // }
 
 .app{
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+
     background-color: rgb(242, 242, 242);
     // border: solid 1px red;
     // margin-left: 18vw;
@@ -60,9 +62,13 @@ body{
         margin-bottom: 80px;
         display: flex;
         justify-content: space-between;
+        height: 100px;
+        background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        margin-top: -65px;
+        
 
         .logo-text-wrapper{
-
+            margin-top: 70px;
             display: flex;
             .header-logo{
                 padding-left: 30px;
@@ -75,8 +81,10 @@ body{
                 color: white;
                 font-size: 14px;
                 padding-top: 10px;
-                padding-left: 2px;
                 font-weight: bold;
+                letter-spacing: 1px;
+                margin-left: -5px;
+
             }
 
         }
@@ -360,12 +368,7 @@ body{
         position: absolute;
         top: .7em;
     }
-
-
 }
-
-
-
 
 .song-show-button {
   height: 48px;
@@ -392,10 +395,46 @@ body{
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%);
 }
 
-.show-text-container{
-    height: 40px;
+.column-wrap{
+    margin-left: 5px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h2{
+        color: white;
+        padding: 4px;
+    }
+    h1{
+        background: black;
+        color: white;
+        font-size: 26px;
+        padding: 4px;
+    }
+}
+
+.display-next{
+    display: flex;
+    h1{
+        padding-top: 25px;
+        color: white;
+    }
+}
+
+.show-text-container-1{
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    height: 20px;
     background: black;
     padding: 3px;
+    margin-left: 10px;
+    
+    .show-text{
+        font-size: 18px;
+        // color: white;
+        color: #ccc;
+        // padding-left: 10px;
+        // padding-top: 3px;
+    }
 }
 
 .button-title{
@@ -403,12 +442,6 @@ body{
     padding: 20px;
 }
 
-.show-text{
-    font-size: 36px;
-    color: white;
-    padding-left: 10px;
-    padding-top: 3px;
-}
 
 .pause-image{
     color: white;
@@ -529,8 +562,9 @@ body{
 
 .waveform-component{
     position: absolute;
-    top: 175px;
+    top: 250px;
     width: 725px;
+    padding-left: 20px;
 }
 
 .widest{
@@ -569,7 +603,6 @@ body{
     border-radius: 2px;
     background: white;
 }
-
 
 .errors{
     color: red;
@@ -764,8 +797,18 @@ body{
 }
 .p-footer{
     margin-left: 25px;
-    height: 40px;
+    height: 75px;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-weight: 100;
     font-size: 14px;
+}
+
+.jo-logo{
+    margin-left: 20px;
+    filter: brightness(0) invert(1);
+
+}
+
+.jo-overlay{
+    background: black;
 }

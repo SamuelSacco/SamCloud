@@ -28,6 +28,15 @@ class Api::SongsController < ApplicationController
     end
   end
 
+  def update
+    @song = Song.find_by(id: params[:id])
+    if @song.update(song_params)
+      render :show
+    else
+      render json: @song.errors.full_messages, status: 422
+    end
+  end
+
   # def create
   #   debugger
   #   @song = Song.new(song_params)
@@ -50,6 +59,6 @@ class Api::SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit(:title, :artist_id, :description, :audio, :photo)
+    params.require(:song).permit(:title, :artist_id, :plays, :description, :audio, :photo)
   end
 end

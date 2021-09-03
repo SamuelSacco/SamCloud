@@ -23,10 +23,9 @@ User.create({username: "Noga Erez", email: "demo10@gmail.com", password: "123456
 User.create({username: "Anderson Paak", email: "demo11@gmail.com", password: "123456"})
 User.create({username: "Drake", email: "demo12@gmail.com", password: "123456"})
 
-
 Song.delete_all
+Song.connection.execute('ALTER SEQUENCE songs_id_seq RESTART WITH 1')
 ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
-User.connection.execute('ALTER SEQUENCE songs_id_seq RESTART WITH 1')
 
 bad_habits = Song.create!(title: "Bad Habits", artist: "Ed Sheeran", artist_id: 1)
 bad_habits_audio = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_songs/bad_habits/Ed+Sheeran+-+Bad+Habits+(Lyrics).mp3")
