@@ -8,7 +8,8 @@ const mSTP = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         songId: ownProps.match.params.songId,
         song: state.entities.songs[ownProps.match.params.songId],
-        comments: Object.values(state.entities.comments)
+        comments: Object.values(state.entities.comments),
+        songAudioObject: state.ui.playbar.songAudioObject
     })
 }
 

@@ -71,6 +71,7 @@ class SongShow extends React.Component {
                         </div>
                             <AudioPlayer 
                             song={this.props.song}
+                            songAudioObject={this.props.songAudioObject}
                             isPlaying={this.state.isPlaying}
                             />
                             <div className="display-next">

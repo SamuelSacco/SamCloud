@@ -50,7 +50,7 @@ export default class PlayBar extends Component {
         // this.props.songAudioObject.currentTime = e.target.value;
         // this.setState({ elapsed: e.target.value });
         this.props.setTime(e.target.value)
-        // console.log(e.target.value)
+        console.log(e.target.value)
     }
         
     componentDidUpdate(previousProps){

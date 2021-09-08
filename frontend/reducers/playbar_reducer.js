@@ -33,7 +33,7 @@ const playbarReducer = (state = _nullSong, action) => {
                 songAudioObject = new Audio(action.song.audio_url)
             }
             
-            // songAudioObject.volume = .1
+            // songAudioObject.volume = 0
             songAudioObject.play()
             return Object.assign(newState, {
                 playing: true,
