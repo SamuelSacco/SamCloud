@@ -56,7 +56,7 @@ class SongIndexItem extends React.Component{
                 <img className="thumbnails"  src={this.props.song.photo_url || "no-image.png"} alt="img not found" />
                 <button onClick={this.togglePlay} className="thumbnail-button">
                     {
-                        this.props.playing ? 
+                        this.props.playing && this.props.currentSong.id === this.props.song.id ? 
                         // <div className="pause-image">
                         //         Pause
                         // </div>

@@ -11,7 +11,8 @@ const mSTP = (state, ownProps) => {
         song: state.entities.songs[ownProps.match.params.songId],
         comments: Object.values(state.entities.comments),
         songAudioObject: state.ui.playbar.songAudioObject,
-        playing: state.ui.playbar.playing
+        playing: state.ui.playbar.playing,
+        currentSong: state.ui.playbar.currentSong
     })
 }
 

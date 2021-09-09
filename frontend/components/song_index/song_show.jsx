@@ -44,6 +44,7 @@ class SongShow extends React.Component {
     }
             
     render() {
+        console.log(this.props)
         if (this.props.song === undefined){
             return null
         } else {
@@ -56,7 +57,7 @@ class SongShow extends React.Component {
                         <div className="button-title">
                             <button onClick={this.togglePlay} className="song-show-button">
                                     {
-                                        this.props.playing ?
+                                        this.props.playing && this.props.currentSong.id === this.props.song.id ?
                                             // <div className="pause-image">
                                             //     Pause
                                             // </div>
