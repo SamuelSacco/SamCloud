@@ -1,8 +1,8 @@
-// const contxt = useContext()
 import WaveSurfer from "wavesurfer.js";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { setTime } from "../../actions/playbar_actions";
 import { useDispatch, useSelector } from "react-redux";
+
 const formWaveSurferOptions = ref => ({
     container: ref,
     waveColor: "#eee",
@@ -17,24 +17,53 @@ const formWaveSurferOptions = ref => ({
 });
 
 export default function Waveform(props) {
+
+    const dispatch = useDispatch(); 
     
     const url = props.url;
     const songAudioObject = props.songAudioObject;
+    
+    // const [playing, setPlay] = useState(false);
+    const currentSong = useSelector(state => state.ui.playbar.currentSong)
+    const playing = useSelector(state => state.ui.playbar.playing)
+    const currentTime = useSelector(state => {
+
+        if (state.ui.playbar.songAudioObject){
+
+            return state.ui.playbar.songAudioObject.currentTime;
+        }
+
+        return null;
+    });
+
+    const currentSongLength = useSelector(state => {
+
+        if (state.ui.playbar.songAudioObject) {
+            
+            return state.ui.playbar.songAudioObject.duration;
+        }
+
+        return null;
+    });
+
+    // let currentTime;
+    // let currentSongLength;
+    
     const waveformRef = useRef(null);
     const wavesurfer = useRef(null);
-    
-    const [playing, setPlay] = useState(false);
-    const currentTime = useSelector(state => state.ui.playbar.songAudioObject.currentTime);
-    const currentSongLength = useSelector(state => state.ui.playbar.songAudioObject.duration);
-    const dispatch = useDispatch(); 
+
+    // if (currentSong){
+    //     currentTime = useSelector(state => state.ui.playbar.songAudioObject.currentTime);
+    //     currentSongLength = useSelector(state => state.ui.playbar.songAudioObject.duration);
+    // }
+
 
     
     useEffect(() => {
-        // console.log("PROPS", props)
-        setPlay(false);
-        // console.log("CURENTEST", currentTime);
+        // setPlay(false);
         const options = formWaveSurferOptions(waveformRef.current);
         wavesurfer.current = WaveSurfer.create(options);
+
         wavesurfer.current.on('seek', function (float) {
             dispatch(setTime(wavesurfer.current.getDuration() * float))
         });
@@ -42,38 +71,28 @@ export default function Waveform(props) {
         wavesurfer.current.load(url);
         wavesurfer.current.setVolume(0);
         wavesurfer.current.on("ready", function () {
-            // if (wavesurfer.current) {
-                wavesurfer.current.play(currentTime, currentSongLength);
-                // }
+            if (currentSong.id === props.song.id) {
+                wavesurfer.current.play(currentTime + 2, currentSongLength);
+                }
             });
-            // wavesurfer.current.play(60, 100)()
-            // console.log("hlkhjhlkjbkjhkjhkjhkjh")
-            // deletes shit
+
             return () => wavesurfer.current.destroy();
         }, [url]);
         
         useEffect(() => {
-            // store.subscribe(() => console.log(store.getState()));
             wavesurfer.current.play(currentTime, currentSongLength)
         }, [currentTime])
 
         useEffect(() => {
-            setPlay(props.isPlaying);
+            // setPlay(props.isPlaying);
             wavesurfer.current.playPause();
-        }, [props.isPlaying]);
+        }, [playing]);
         
-    // setTimeout(() => {
-    //     wavesurfer.current.play(currentTime, currentSongLength)
-    // }, 1);
-    
-    const test = (start, end) => {
-    }
-    
     return (
         <div className="widest">
 
             <div id="waveform" ref={waveformRef}/>
-            <button onClick={() => wavesurfer.current.play(currentTime, 100)}>test</button>
+            {/* <button onClick={() => wavesurfer.current.play(currentTime, 100)}>test</button> */}
         </div>
     );
 }

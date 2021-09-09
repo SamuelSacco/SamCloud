@@ -4,12 +4,14 @@ import AudioPlayer from '../audio_player/audio_player'
 import CommentsForm from '../comments_form/comments_form'
 import CommentsFormContainer from '../comments_form/comments_form_container'
 import CommentIndexItem from '../comments_form/comment_index_item'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPause } from "@fortawesome/free-solid-svg-icons";
 
 class SongShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isPlaying: false,
+            playing: false,
             song: props.song,
         }
     }
@@ -19,10 +21,26 @@ class SongShow extends React.Component {
         this.props.requestComments()
     }
             
-    toggle = () => {
+    start = () => {
         this.setState({
-            isPlaying: !this.state.isPlaying
+            playing: true
         })
+        this.props.playSong(this.props.song)
+    }
+
+    pause = () => {
+        this.setState({
+            playing: false
+        })
+        this.props.pauseSong(this.props.song)
+    }
+
+    togglePlay = () => {
+        if (this.state.playing) {
+            return this.pause()
+        } else {
+            return this.start()
+        }
     }
             
     render() {
@@ -36,12 +54,14 @@ class SongShow extends React.Component {
                     <script src="https://unpkg.com/wavesurfer.js"></script>
                     <div className="song-show-header">
                         <div className="button-title">
-                            <button onClick={this.toggle} className="song-show-button">
+                            <button onClick={this.togglePlay} className="song-show-button">
                                     {
-                                        this.state.isPlaying ?
-                                            <div className="pause-image">
-                                                Pause
-                                            </div>
+                                        this.props.playing ?
+                                            // <div className="pause-image">
+                                            //     Pause
+                                            // </div>
+                                            <FontAwesomeIcon className="fas fa-pause fa-2x" icon={faPause} />
+
                                             :
                                             <div className="triangle"></div>
                                     }

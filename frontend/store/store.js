@@ -5,7 +5,7 @@ import logger from "redux-logger";
 import rootReducer from "../reducers/root_reducer";
 const middlewares = [thunk];
 if (process.env.NODE_ENV !== "production") {
-//   middlewares.push(logger);
+  middlewares.push(logger);
 }
 
 const configureStore = (preloadedState = {}) =>

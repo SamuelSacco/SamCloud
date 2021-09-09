@@ -87,8 +87,8 @@ export default class PlayBar extends Component {
                 />
             </div>);
         
-        let volumeOn = this.props.songAudioObject.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} size="lg" /> : <FontAwesomeIcon icon={faVolumeDown} size="lg" />;
-        let volumeButton = (this.props.songAudioObject.volume <= 0) ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
+        let volumeOn = this.props.songAudioObject.volume >= 0.5 ? <FontAwesomeIcon onClick={() => this.props.setVolume(0)} icon={faVolumeUp} size="lg" /> : <FontAwesomeIcon onClick={() => this.props.setVolume(0)} icon={faVolumeDown} size="lg" />;
+        let volumeButton = (this.props.songAudioObject.volume <= 0) ? <FontAwesomeIcon onClick={() => this.props.setVolume(.5)} icon={faVolumeMute} size="lg" /> : volumeOn;
         
         return (
             <div className="playbar">

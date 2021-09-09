@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPause} from "@fortawesome/free-solid-svg-icons";
 
 class SongIndexItem extends React.Component{
     constructor(props){
@@ -54,10 +56,12 @@ class SongIndexItem extends React.Component{
                 <img className="thumbnails"  src={this.props.song.photo_url || "no-image.png"} alt="img not found" />
                 <button onClick={this.togglePlay} className="thumbnail-button">
                     {
-                        this.state.playing ? 
-                        <div className="pause-image">
-                                Pause
-                            </div>
+                        this.props.playing ? 
+                        // <div className="pause-image">
+                        //         Pause
+                        // </div>
+                            <FontAwesomeIcon className="fas fa-pause fa-2x" icon={faPause} />
+
                         :
                         <div className="triangle"></div>
                     }
