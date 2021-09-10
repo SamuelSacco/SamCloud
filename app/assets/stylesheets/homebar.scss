@@ -12,11 +12,11 @@
 }
 
 .homebar-container {
-    min-width: 1240px;
+    min-width: 1222px;
     display: flex;
     justify-content: space-between;
-    width: 1240px;
-    margin-left: 18px;
+    width: 1222px;
+    // margin-left: 18px;
     text-decoration: none;
 }
 
@@ -122,11 +122,29 @@
     cursor: pointer;
     height: 26px;
     line-height: 20px;
-    padding: 2px 11px 2px 10px;
+    padding: 2px 8px 2px 10px;
     margin-bottom: 2px;
     text-align: center;
     vertical-align: baseline;
     box-sizing: border-box;
     background-color: rgb(255, 85, 0);
     color: white;
+}
+
+.homebar-upload{
+  display: block;
+  padding: 12px 0;
+  width: 50px;
+  height: 46px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #ccc;
+  outline: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: none;
+
+  &:hover {
+    color: #eee;
+  }
 }

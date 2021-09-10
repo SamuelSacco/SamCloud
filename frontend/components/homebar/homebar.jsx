@@ -18,7 +18,7 @@ class HomeBar extends React.Component {
 
         const navbar = this.props.currentUser ? (
             <nav className="homebar-right">
-                <Link className="homebar-item" to="/songs/new">Upload</Link>
+                <Link className="homebar-upload" to="/songs/new">Upload</Link>
                 <Link className={`homebar-item homebar-profile`} to={`/`}>
                     <img className="homebar-profile-pic" src={this.props.currentUser.avatar_url} />
                     {this.props.currentUser.username}
