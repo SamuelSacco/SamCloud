@@ -28,6 +28,10 @@ Users can also mute / modify the volume, resume the track, and toggle looping. U
 <img width="1440" alt="Screen Shot 2021-07-16 at 9 37 06 AM" src="https://user-images.githubusercontent.com/76980320/125956670-e64335ad-5da5-4c11-bfb5-018a91f3072a.png">
 
 SamClouds utilizes wavesurfer.js an HTML 5 audio player and waveform visualizer, made with JavaScript and Web Audio. Each song has its custom "wave form" displayed. 
+Users can click the waveform to skip to a desired song spot similarly to the playbar. This is accomplished by using the on() Wavesurfer method to subscribe to the "seek" event, and then dispatching that time to the store.
+
+<img width="242" alt="Screen Shot 2021-09-10 at 2 25 01 PM" src="https://user-images.githubusercontent.com/76980320/132900406-6ee36428-ed6f-4143-8e9c-109c341ccc78.png">
+
 
 ## Upload Song
 
