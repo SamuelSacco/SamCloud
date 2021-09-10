@@ -11,7 +11,11 @@ require 'open-uri'
 User.delete_all
 User.connection.execute('ALTER SEQUENCE users_id_seq RESTART WITH 1')
 User.create({username: "Ed Sheeran", email: "demo@gmail.com", password: "123456"})
-User.create({username: "Stigs", email: "demo2@gmail.com", password: "123456"})
+
+stigs = User.create!({username: "Stigs", email: "demo2@gmail.com", password: "123456"})
+stigs_avatar = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_avatars/stigs.jpeg")
+stigs.avatar.attach(io: stigs_avatar, filename: "Stigs.jpeg")
+
 User.create({username: "RuPaul", email: "demo3@gmail.com", password: "123456"})
 User.create({username: "Tinashe", email: "demo4@gmail.com", password: "123456"})
 User.create({username: "Disclosure", email: "demo5@gmail.com", password: "123456"})

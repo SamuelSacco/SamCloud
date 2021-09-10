@@ -33,10 +33,10 @@ export default class Splash extends Component {
                             {
                                 this.props.currentUserId ? 
                                     // <a href="http://localhost:3000/#/songs/new">
-                                    <a href="https://samcloud-app.herokuapp.com/#/songs/new">
+                                    <Link to="/songs/new">
                                         <button className="start-upload button">Start uploading today
                                         </button>
-                                    </a>
+                                    </Link>
                                 :
                                     <button className="start-upload button" onClick={() => this.props.openModal('Sign in')}>Start uploading today
                                     </button>
@@ -51,7 +51,7 @@ export default class Splash extends Component {
                 </div>
 
                 <div className="explore-wrapper">
-                    <button className="explore-trending button">Explore     trending playlists
+                    <button className="explore-trending button" onClick={() => this.props.openModal('Sign up')}>Explore     trending playlists
                     </button>
                 </div>
 
@@ -80,7 +80,7 @@ export default class Splash extends Component {
                         <p>
                             Get on SamCloud to connect with fans, share your sounds, and grow your audience. What are you waiting for?
                         </p>
-                        <button>
+                        <button onClick={() => this.props.openModal('Sign up')}>
                             Find out more
                         </button>
                     </div>

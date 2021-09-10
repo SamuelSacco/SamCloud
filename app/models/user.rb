@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
 
+  has_one_attached :avatar
+
   has_many :songs,
   primary_key: :id,
   foreign_key: :artist_id,

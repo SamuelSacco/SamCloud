@@ -47,7 +47,6 @@ class SongForm extends React.Component{
 
         return (
             <div className="width-wrapper">
-                <div className="single-line">
                     <div className="double-border">
                         {/* <h1 className="upload-h1">Upload a Song!</h1> */}
                     <div className="drag-drop">
@@ -79,7 +78,6 @@ class SongForm extends React.Component{
                             <br />
                             <button className="submit-edit">Create Song!</button>
                         </form>
-                    </div>
                     
                     </div>
                 </div>

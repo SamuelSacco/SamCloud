@@ -28,7 +28,7 @@ class NavBar extends React.Component{
                         <button className="sign-up button" onClick={() => this.props.openModal('Sign up')}>
                             Create account
                         </button>
-                        <button className="for-creators button">
+                        <button className="for-creators button" onClick={() => this.props.openModal('Sign in')}>
                             For Creators
                         </button>
                     </div>
