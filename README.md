@@ -17,7 +17,7 @@ SamClouds backend is built on Ruby on Rails, PostgreSQL. The frontend was built 
 
 ## Playbar
 
-https://media.giphy.com/media/iQ4sHovrW30sfhmZPe/giphy.gif?cid=790b761187fcf4bebabdacb06cb3d65f30048889e7195b27&rid=giphy.gif&ct=g
+![playbar_gif](https://user-images.githubusercontent.com/76980320/132899805-3836aee3-0740-44a5-b9cf-88bda23147f5.gif)
 
 Once a song has been played, it will appear on the bottom of the screen in the "playbar." The track will continue to play while visitors navigate throughout the site, and the play status, as indicated by the play button, will be kept as users move to different pages.
 
