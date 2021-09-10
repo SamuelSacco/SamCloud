@@ -6,6 +6,7 @@ import CommentsFormContainer from '../comments_form/comments_form_container'
 import CommentIndexItem from '../comments_form/comment_index_item'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPause } from "@fortawesome/free-solid-svg-icons";
+import HomeBar_Container from '../homebar/homebar_container'
 
 class SongShow extends React.Component {
     constructor(props) {
@@ -44,13 +45,13 @@ class SongShow extends React.Component {
     }
             
     render() {
-        console.log(this.props)
         if (this.props.song === undefined){
             return null
         } else {
             return (
                 
                 <>
+                <HomeBar_Container />
                 <div className="width-wrapper">
                     <script src="https://unpkg.com/wavesurfer.js"></script>
                     <div className="song-show-header">

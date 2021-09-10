@@ -99,6 +99,22 @@ wants_thumbnail = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_songs/
 wants.audio.attach(io: wants_audio, filename: "Wants.mp3")
 wants.photo.attach(io: wants_thumbnail, filename: "Wants.jpeg")
 
+Comment.delete_all
+Comment.connection.execute('ALTER SEQUENCE comments_id_seq RESTART WITH 1')
+Comment.create(user_id: 1, song_id: 2, body: "wow")
+Comment.create(user_id: 2, song_id: 3, body: "yes!")
+Comment.create(user_id: 3, song_id: 4, body: "great")
+Comment.create(user_id: 4, song_id: 5, body: "good")
+Comment.create(user_id: 5, song_id: 6, body: "hello")
+Comment.create(user_id: 6, song_id: 7, body: "ok")
+Comment.create(user_id: 7, song_id: 8, body: "nice")
+Comment.create(user_id: 8, song_id: 9, body: "music")
+Comment.create(user_id: 9, song_id: 10, body: "song")
+Comment.create(user_id: 10, song_id: 11, body: "comment")
+Comment.create(user_id: 11, song_id: 12, body: "first")
+Comment.create(user_id: 12, song_id: 1, body: "last")
+
+
 # TESTING SEEDING SONGS WITH CORRECT URLS
 # bad_habits = Song.create(title: "Bad Habits", artist_id: 1, )
 

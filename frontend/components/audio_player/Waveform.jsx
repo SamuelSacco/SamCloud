@@ -3,6 +3,11 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { setTime } from "../../actions/playbar_actions";
 import { useDispatch, useSelector } from "react-redux";
 
+var ctx = document.createElement('canvas').getContext('2d');
+var linGrad = ctx.createLinearGradient(0, 64, 0, 200);
+linGrad.addColorStop(0.5, 'rgba(116, 116, 116, 1.000)');
+linGrad.addColorStop(0.5, 'rgba(183, 183, 183, 1.000)');
+
 const formWaveSurferOptions = ref => ({
     container: ref,
     waveColor: "#eee",
@@ -22,48 +27,26 @@ export default function Waveform(props) {
     
     const url = props.url;
     const songAudioObject = props.songAudioObject;
-    
-    // const [playing, setPlay] = useState(false);
     const currentSong = useSelector(state => state.ui.playbar.currentSong)
     const playing = useSelector(state => state.ui.playbar.playing)
     const currentTime = useSelector(state => {
-
         if (state.ui.playbar.songAudioObject){
-
             return state.ui.playbar.songAudioObject.currentTime;
         }
-
         return null;
     });
-
     const currentSongLength = useSelector(state => {
-
         if (state.ui.playbar.songAudioObject) {
-            
             return state.ui.playbar.songAudioObject.duration;
         }
-
         return null;
     });
-
-    // let currentTime;
-    // let currentSongLength;
-    
     const waveformRef = useRef(null);
     const wavesurfer = useRef(null);
 
-    // if (currentSong){
-    //     currentTime = useSelector(state => state.ui.playbar.songAudioObject.currentTime);
-    //     currentSongLength = useSelector(state => state.ui.playbar.songAudioObject.duration);
-    // }
-
-
-    
     useEffect(() => {
-        // setPlay(false);
         const options = formWaveSurferOptions(waveformRef.current);
         wavesurfer.current = WaveSurfer.create(options);
-
         wavesurfer.current.on('seek', function (float) {
             dispatch(setTime(wavesurfer.current.getDuration() * float))
         });
@@ -72,7 +55,11 @@ export default function Waveform(props) {
         wavesurfer.current.setVolume(0);
         wavesurfer.current.on("ready", function () {
             if (currentSong.id === props.song.id) {
-                wavesurfer.current.play(currentTime + 2, currentSongLength);
+                if (playing) {
+                    wavesurfer.current.play(currentTime + 2, currentSongLength);
+                } else {
+                    wavesurfer.current.pause();
+                }
                 }
             });
 
@@ -80,12 +67,19 @@ export default function Waveform(props) {
         }, [url]);
         
         useEffect(() => {
-            wavesurfer.current.play(currentTime, currentSongLength)
+            if (playing) {
+                wavesurfer.current.play(currentTime + 2, currentSongLength);
+            } else {
+                wavesurfer.current.pause();
+            }
         }, [currentTime])
 
         useEffect(() => {
-            // setPlay(props.isPlaying);
-            wavesurfer.current.playPause();
+            if (playing) {
+                wavesurfer.current.play(currentTime + 2, currentSongLength);
+            } else {
+                wavesurfer.current.pause();
+            }
         }, [playing]);
         
     return (
