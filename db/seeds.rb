@@ -8,18 +8,35 @@
 
 require 'open-uri'
 
+ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
+
 User.delete_all
 User.connection.execute('ALTER SEQUENCE users_id_seq RESTART WITH 1')
-User.create({username: "Ed Sheeran", email: "demo@gmail.com", password: "123456"})
+
+ed_sheeran = User.create!({username: "Ed Sheeran", email: "demo@gmail.com", password: "123456"})
+ed_sheeran_avatar = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_avatars/ac9967dc9aa51d9e12da0e756300baf0.jpeg")
+ed_sheeran.avatar.attach(io: ed_sheeran_avatar, filename: "Ed.jpeg")
 
 stigs = User.create!({username: "Stigs", email: "demo2@gmail.com", password: "123456"})
 stigs_avatar = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_avatars/stigs.jpeg")
 stigs.avatar.attach(io: stigs_avatar, filename: "Stigs.jpeg")
 
-User.create({username: "RuPaul", email: "demo3@gmail.com", password: "123456"})
-User.create({username: "Tinashe", email: "demo4@gmail.com", password: "123456"})
-User.create({username: "Disclosure", email: "demo5@gmail.com", password: "123456"})
-User.create({username: "Britney Spears", email: "demo6@gmail.com", password: "123456"})
+britney = User.create!({username: "Britney Spears", email: "demo3@gmail.com", password: "123456"})
+britney_avatar = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_avatars/britney.jpeg")
+britney.avatar.attach(io: britney_avatar, filename: "Britney.jpeg")
+
+tinashe = User.create({username: "Tinashe", email: "demo4@gmail.com", password: "123456"})
+tinashe_avatar = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_avatars/tinashe.jpeg")
+tinashe.avatar.attach(io: tinashe_avatar, filename: "Tinashe.jpeg")
+
+disclosure = User.create({username: "Disclosure", email: "demo5@gmail.com", password: "123456"})
+disclosure_avatar = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_avatars/disclosure.jpeg")
+disclosure.avatar.attach(io: disclosure_avatar, filename: "Disclosure.jpeg")
+
+ruPaul = User.create!({username: "RuPaul", email: "demo6@gmail.com", password: "123456"})
+ruPaul_avatar = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_avatars/ru.jpeg")
+ruPaul.avatar.attach(io: ruPaul_avatar, filename: "RuPaul.jpeg")
+
 User.create({username: "Indeep", email: "demo7@gmail.com", password: "123456"})
 User.create({username: "Labrinth", email: "demo8@gmail.com", password: "123456"})
 User.create({username: "PoloG", email: "demo9@gmail.com", password: "123456"})
@@ -29,7 +46,6 @@ User.create({username: "Drake", email: "demo12@gmail.com", password: "123456"})
 
 Song.delete_all
 Song.connection.execute('ALTER SEQUENCE songs_id_seq RESTART WITH 1')
-ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
 
 bad_habits = Song.create!(title: "Bad Habits", artist: "Ed Sheeran", artist_id: 1)
 bad_habits_audio = open("https://samcloud-seed.s3.amazonaws.com/soundcloud_songs/bad_habits/Ed+Sheeran+-+Bad+Habits+(Lyrics).mp3")
@@ -105,7 +121,7 @@ wants.photo.attach(io: wants_thumbnail, filename: "Wants.jpeg")
 
 Comment.delete_all
 Comment.connection.execute('ALTER SEQUENCE comments_id_seq RESTART WITH 1')
-Comment.create(user_id: 1, song_id: 2, body: "wow")
+Comment.create(user_id: 1, song_id: 2, body: "This is incredible")
 Comment.create(user_id: 2, song_id: 3, body: "yes!")
 Comment.create(user_id: 3, song_id: 4, body: "great")
 Comment.create(user_id: 4, song_id: 5, body: "good")
@@ -117,7 +133,6 @@ Comment.create(user_id: 9, song_id: 10, body: "song")
 Comment.create(user_id: 10, song_id: 11, body: "comment")
 Comment.create(user_id: 11, song_id: 12, body: "first")
 Comment.create(user_id: 12, song_id: 1, body: "last")
-
 
 # TESTING SEEDING SONGS WITH CORRECT URLS
 # bad_habits = Song.create(title: "Bad Habits", artist_id: 1, )

@@ -3,11 +3,6 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { setTime } from "../../actions/playbar_actions";
 import { useDispatch, useSelector } from "react-redux";
 
-var ctx = document.createElement('canvas').getContext('2d');
-var linGrad = ctx.createLinearGradient(0, 64, 0, 200);
-linGrad.addColorStop(0.5, 'rgba(116, 116, 116, 1.000)');
-linGrad.addColorStop(0.5, 'rgba(183, 183, 183, 1.000)');
-
 const formWaveSurferOptions = ref => ({
     container: ref,
     waveColor: "#eee",
@@ -46,6 +41,7 @@ export default function Waveform(props) {
 
     useEffect(() => {
         const options = formWaveSurferOptions(waveformRef.current);
+        
         wavesurfer.current = WaveSurfer.create(options);
         wavesurfer.current.on('seek', function (float) {
             dispatch(setTime(wavesurfer.current.getDuration() * float))
@@ -61,6 +57,11 @@ export default function Waveform(props) {
                     wavesurfer.current.pause();
                 }
                 }
+            console.warn("RAWR")
+            // console.log(wavesurfer.current.backend.getPeaks());
+            console.log(wavesurfer.current.backend.getPeaks(10));
+            console.log(wavesurfer.current.backend.getPeaks(512));
+            console.log(wavesurfer.current.backend.mergedPeaks);
             });
 
             return () => wavesurfer.current.destroy();

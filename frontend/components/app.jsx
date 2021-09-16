@@ -19,9 +19,11 @@ import SplashContainer from './splash/splash_container';
 import Topbar from './topbar/topbar';
 import PlaybarContainer from './playbar/playbar_container';
 import PlayButtonContainer from './play_button/play_button_container';
+import Test from './test';
 
 const App = () => (
     <div className="app">
+        {/* <Test /> */}
         {/* <Test/> */}
         {/* <SongFormContainer/> */}
         {/* <NavBarContainer /> */}
